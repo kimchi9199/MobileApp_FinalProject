@@ -6,19 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
-
+        android:layout_height="120dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/ct_lo_menu"
+        android:orientation="vertical">
         <LinearLayout
-            android:id="@+id/LO_1"
+            android:id="@+id/LO_menu1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="horizontal"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="16dp">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -64,78 +70,45 @@
 
 
         </LinearLayout>
-
         <LinearLayout
             android:id="@+id/LO_2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="78dp"
+            android:orientation="horizontal"
             >
 
-            <com.google.android.material.carousel.MaskableFrameLayout
-                android:id="@+id/carousel_item_container"
-                android:layout_width="wrap_content"
+
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="300dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:foreground="?attr/selectableItemBackground"
-                app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge">
-                <TextView
+                app:tabMode="scrollable">
+
+                <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="My Room"
-                    android:textSize="20dp"
-                    android:layout_gravity="center"/>
+                    android:text="My Room" />
 
 
-
-            </com.google.android.material.carousel.MaskableFrameLayout>
-
-            <com.google.android.material.carousel.MaskableFrameLayout
-                android:id="@+id/carousel_item_container2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:foreground="?attr/selectableItemBackground"
-                app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge">
-                <TextView
+                <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="My Garden"
-                    android:textSize="20dp"
-                    android:layout_gravity="center"/>
+                    android:text="My Kitchen"/>
 
-
-
-            </com.google.android.material.carousel.MaskableFrameLayout>
-
-
-
-
-            <com.google.android.material.carousel.MaskableFrameLayout
-                android:id="@+id/carousel_item_container3"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:foreground="?attr/selectableItemBackground"
-                app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge">
-                <TextView
+                <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="My Kitchen"
-                    android:textSize="20dp"
-                    android:layout_gravity="center"/>
+                    android:text="My Yard"/>
 
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Garden">
 
-
-            </com.google.android.material.carousel.MaskableFrameLayout>
-
-
-
-
+                </com.google.android.material.tabs.TabItem>
+            </com.google.android.material.tabs.TabLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -158,69 +131,56 @@
 
 
 
+
         </LinearLayout>
-
-        <GridView
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:paddingTop="20dp"
-            android:numColumns="2"
-            android:layout_margin="16dp">
-
-        </GridView>
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="testOpenRv"
-            android:onClick="openRecyclerView">
-
-        </com.google.android.material.button.MaterialButton>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/CLayout_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/Btn_I1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="I1"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintRight_toRightOf="@+id/Btn_I2"
-               />
-
-            <Button
-                android:id="@+id/Btn_I2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="I2"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/Btn_I3"
-                app:layout_constraintLeft_toRightOf="@id/Btn_I1"/>
-
-            <Button
-                android:id="@+id/Btn_I3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:text="I3"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
     </LinearLayout>
 
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:id="@+id/frame_layout"
+        app:layout_constraintTop_toBottomOf="@+id/ct_lo_menu"
+        app:layout_constraintBottom_toTopOf="@+id/bt_navigation_menu"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    </FrameLayout>
+
+
+
+
+
+
+
+    <!--            <Button-->
+    <!--                android:id="@+id/Btn_I1"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:text="I1"-->
+    <!--                android:textSize="20dp"-->
+    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                android:onClick="openRecyclerView"-->
+    <!--               />-->
+
+
+
+
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_navigation_menu"
+        app:menu="@menu/bottom_navigation_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

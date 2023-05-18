@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -32,6 +33,14 @@ public class Recycler_View extends AppCompatActivity {
 
         mDeviceAdapter = new DeviceAdapter(this, mDevices);
         rvDevices.setAdapter(mDeviceAdapter);
+
+        mDeviceAdapter.setListener(new DeviceAdapter.OnItemClickListener() {
+            @Override
+            public void onItemCLick(int position) {
+                Intent intent = new Intent(Recycler_View.this, Stream_Video_Activity.class);
+                startActivity(intent);
+            }
+        });
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false);
         rvDevices.setLayoutManager(linearLayoutManager);

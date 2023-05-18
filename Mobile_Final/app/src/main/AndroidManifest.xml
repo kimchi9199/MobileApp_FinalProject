@@ -12,15 +12,14 @@
         android:theme="@style/Theme.MobileApp_Final"
         tools:targetApi="31">
         <activity
+            android:name=".Stream_Video_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Card_View_Activity"
             android:exported="false" />
         <activity
             android:name=".Recycler_View"
-            android:exported="false" >
-
-
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
