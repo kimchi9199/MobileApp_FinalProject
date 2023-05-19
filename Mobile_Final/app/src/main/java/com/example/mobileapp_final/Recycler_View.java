@@ -10,10 +10,11 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 
-import Adapter.DeviceAdapter;
-import Model.Devices;
+import com.example.mobileapp_final.Adapter.DeviceAdapter;
+import com.example.mobileapp_final.Interface.RecyclerViewInterFace;
+import com.example.mobileapp_final.Model.Devices;
 
-public class Recycler_View extends AppCompatActivity {
+public class Recycler_View extends AppCompatActivity implements RecyclerViewInterFace {
 
     private RecyclerView rvDevices;
     private DeviceAdapter mDeviceAdapter;
@@ -31,18 +32,17 @@ public class Recycler_View extends AppCompatActivity {
         mDevices.add(new Devices("C03","Camera03","CamKitchenRoom"));
         mDevices.add(new Devices("C04","Camera04","CamGarden"));
 
-        mDeviceAdapter = new DeviceAdapter(this, mDevices);
-        rvDevices.setAdapter(mDeviceAdapter);
 
-        mDeviceAdapter.setListener(new DeviceAdapter.OnItemClickListener() {
-            @Override
-            public void onItemCLick(int position) {
-                Intent intent = new Intent(Recycler_View.this, Stream_Video_Activity.class);
-                startActivity(intent);
-            }
-        });
+        mDeviceAdapter = new DeviceAdapter(this, mDevices, Recycler_View.this);
+        rvDevices.setAdapter(mDeviceAdapter);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false);
         rvDevices.setLayoutManager(linearLayoutManager);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(Recycler_View.this, Stream_Video_Activity.class);
+        startActivity(intent);
     }
 }

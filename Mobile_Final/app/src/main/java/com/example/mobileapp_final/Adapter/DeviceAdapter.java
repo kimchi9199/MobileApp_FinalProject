@@ -1,31 +1,25 @@
-package Adapter;
-
-import static androidx.core.content.ContextCompat.startActivity;
+package com.example.mobileapp_final.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mobileapp_final.Interface.RecyclerViewInterFace;
 import com.example.mobileapp_final.R;
-import com.example.mobileapp_final.Recycler_View;
-import com.example.mobileapp_final.Stream_Video_Activity;
 
 import java.util.List;
 
-import Model.Devices;
+import com.example.mobileapp_final.Model.Devices;
 
 public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder> {
 
-
+    private final RecyclerViewInterFace recyclerViewInterFace;
     private static final String TAG = "DeviceAdapter";
     private List<Devices> mDevices; // Show list devices
     private Context mContext; //
@@ -40,10 +34,11 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceView
         this.listener = listener;
     }
 
-    public DeviceAdapter(Context context, List<Devices> datas){
-        mContext = context;
-        mDevices = datas;
-        mLayoutInflater=LayoutInflater.from(context);
+    public DeviceAdapter(Context context, List<Devices> datas, RecyclerViewInterFace recyclerViewInterFace){
+        this.mContext = context;
+        this.mDevices = datas;
+        this.mLayoutInflater=LayoutInflater.from(context);
+        this.recyclerViewInterFace = recyclerViewInterFace;
 
     }
 
@@ -88,15 +83,14 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceView
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(itemView.getContext(),"noti", Toast.LENGTH_SHORT).show();
-                    if (listener != null)
-                    {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION)
-                        {
-                            listener.onItemCLick(position);
-                        }
-                    }
+                   if (recyclerViewInterFace != null)
+                   {
+                       int position = getAdapterPosition();
+                       if (position != RecyclerView.NO_POSITION)
+                       {
+                           recyclerViewInterFace.onItemClick(position);
+                       }
+                   }
                 }
             });
         }

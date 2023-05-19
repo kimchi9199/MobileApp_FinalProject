@@ -6,13 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
-import fragment.all_devices_fragment;
+import com.example.mobileapp_final.fragment.all_devices_fragment;
 
 public class MainActivity extends AppCompatActivity {
     CardView cardView;

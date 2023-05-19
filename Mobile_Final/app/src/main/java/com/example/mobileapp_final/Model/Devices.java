@@ -1,4 +1,4 @@
-package Model;
+package com.example.mobileapp_final.Model;
 
 import androidx.recyclerview.widget.RecyclerView;
 

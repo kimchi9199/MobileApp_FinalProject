@@ -1,5 +1,6 @@
-package fragment;
+package com.example.mobileapp_final.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,16 +11,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mobileapp_final.Interface.RecyclerViewInterFace;
 import com.example.mobileapp_final.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Adapter.DeviceAdapter;
-import Model.Devices;
+import com.example.mobileapp_final.Adapter.DeviceAdapter;
+import com.example.mobileapp_final.Model.Devices;
+import com.example.mobileapp_final.Stream_Video_Activity;
 
 
-public class all_devices_fragment extends Fragment {
+public class all_devices_fragment extends Fragment implements RecyclerViewInterFace {
 
     private RecyclerView rcAllDevices;
     private DeviceAdapter mAllDevicesAdapter;
@@ -40,7 +43,7 @@ public class all_devices_fragment extends Fragment {
         mAllDevices.add(new Devices("C03","Kitchen","Camera03"));
         mAllDevices.add(new Devices("C04","Garden","Camera04"));
 
-        mAllDevicesAdapter = new DeviceAdapter(view.getContext(), mAllDevices);
+        mAllDevicesAdapter = new DeviceAdapter(view.getContext(), mAllDevices, all_devices_fragment.this);
         rcAllDevices.setAdapter(mAllDevicesAdapter);
 
         //De hien thi len gridview
@@ -51,4 +54,9 @@ public class all_devices_fragment extends Fragment {
     }
 
 
+    @Override
+    public void onItemClick(int position) {
+        Intent intent =new Intent( all_devices_fragment.this.getContext(), Stream_Video_Activity.class);
+        startActivity(intent);
+    }
 }
