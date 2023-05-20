@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_signup"
+    tools:context=".SignupActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="250dp"
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/signup_email"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:background="@drawable/border"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="7dp"
+                android:padding="8dp"
+                android:hint="Enter email"
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawablePadding="12dp"
+                >
+            </EditText>
+            <EditText
+                android:id="@+id/signup_password"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:background="@drawable/border"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="7dp"
+                android:padding="8dp"
+                android:hint="Enter new password"
+                android:inputType="textPassword"
+                android:drawableLeft="@drawable/baseline_lock_24"
+                android:drawablePadding="12dp"
+                />
+<!--            <EditText-->
+<!--                android:id="@+id/signup_confirm_password"-->
+<!--                android:layout_width="350dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:background="@drawable/border"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:layout_marginLeft="7dp"-->
+<!--                android:padding="8dp"-->
+<!--                android:hint="Confirm password"-->
+<!--                android:inputType="textPassword"-->
+<!--                android:drawableLeft="@drawable/baseline_password_24"-->
+<!--                android:drawablePadding="12dp"-->
+<!--                />-->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/btn_signup"
+                android:layout_height="70dp"
+                android:layout_width="200dp"
+                android:text="Sign up"
+                android:textSize="18dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="75dp"
+                app:cornerRadius = "30dp"
+                android:backgroundTint="@color/purple_500"
+                >
+            </Button>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/loginRedirectText"
+                android:text="Already an user? Log in here"
+                android:layout_gravity="center"
+                android:padding="8dp"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/lavender">
+
+            </TextView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
