@@ -6,9 +6,9 @@
     "deprecated": false,
     "default": true
   },
-  "cxxBuildFolder": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\.cxx\\RelWithDebInfo\\6m21653g\\x86",
-  "soFolder": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\build\\intermediates\\cxx\\RelWithDebInfo\\6m21653g\\obj\\x86",
-  "soRepublishFolder": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\build\\intermediates\\cmake\\release\\obj\\x86",
+  "cxxBuildFolder": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\.cxx\\RelWithDebInfo\\6m21653g\\x86",
+  "soFolder": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\build\\intermediates\\cxx\\RelWithDebInfo\\6m21653g\\obj\\x86",
+  "soRepublishFolder": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\build\\intermediates\\cmake\\release\\obj\\x86",
   "abiPlatformVersion": 21,
   "cmake": {
     "effectiveConfiguration": {
@@ -36,15 +36,15 @@
     "implicitBuildTargetSet": [],
     "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
     "module": {
-      "cxxFolder": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\.cxx",
-      "intermediatesBaseFolder": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\build\\intermediates",
-      "intermediatesFolder": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\build\\intermediates\\cxx",
+      "cxxFolder": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\.cxx",
+      "intermediatesBaseFolder": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\build\\intermediates",
+      "intermediatesFolder": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\build\\intermediates\\cxx",
       "gradleModulePathName": ":sdk",
-      "moduleRootFolder": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk",
-      "moduleBuildFile": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\build.gradle",
-      "makeFile": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\libcxx_helper\\CMakeLists.txt",
+      "moduleRootFolder": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk",
+      "moduleBuildFile": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\build.gradle",
+      "makeFile": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
       "buildSystem": "CMAKE",
-      "ndkFolder": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620",
+      "ndkFolder": "E:\\AndroidDev\\ndk\\23.1.7779620",
       "ndkVersion": "23.1.7779620",
       "ndkSupportedAbiList": [
         "ARMEABI_V7A",
@@ -108,32 +108,32 @@
           "default": true
         }
       ],
-      "cmakeToolchainFile": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
+      "cmakeToolchainFile": "E:\\AndroidDev\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
       "cmake": {
         "isValidCmakeAvailable": true,
-        "cmakeExe": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\cmake.exe",
+        "cmakeExe": "E:\\AndroidDev\\cmake\\3.22.1\\bin\\cmake.exe",
         "minimumCmakeVersion": "3.22.1"
       },
       "stlSharedObjectMap": {
         "LIBCXX_SHARED": {
-          "ARMEABI_V7A": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
-          "ARM64_V8A": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
-          "X86": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
-          "X86_64": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
+          "ARMEABI_V7A": "E:\\AndroidDev\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
+          "ARM64_V8A": "E:\\AndroidDev\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
+          "X86": "E:\\AndroidDev\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
+          "X86_64": "E:\\AndroidDev\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
         },
         "LIBCXX_STATIC": {},
         "NONE": {},
         "SYSTEM": {}
       },
       "project": {
-        "rootBuildGradleFolder": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy",
-        "sdkFolder": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk",
+        "rootBuildGradleFolder": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient",
+        "sdkFolder": "E:\\AndroidDev",
         "isBuildOnlyTargetAbiEnabled": true,
         "isCmakeBuildCohabitationEnabled": false,
         "isPrefabEnabled": false
       },
       "outputOptions": [],
-      "ninjaExe": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe"
+      "ninjaExe": "E:\\AndroidDev\\cmake\\3.22.1\\bin\\ninja.exe"
     },
     "prefabClassPaths": [],
     "prefabPackages": [],
@@ -144,29 +144,29 @@
   "buildSettings": {
     "environmentVariables": []
   },
-  "prefabFolder": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\.cxx\\RelWithDebInfo\\6m21653g\\prefab\\x86",
+  "prefabFolder": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\.cxx\\RelWithDebInfo\\6m21653g\\prefab\\x86",
   "isActiveAbi": true,
   "fullConfigurationHash": "6m21653g6y1n6e562q5z2c5n3u1a1j6x8125x2e3g2x13404e201x2w334j5ev",
   "fullConfigurationHashKey": "# Values used to calculate the hash in this folder name.\n# Should not depend on the absolute path of the project itself.\n#   - AGP: 7.4.2.\n#   - $NDK is the path to NDK 23.1.7779620.\n#   - $PROJECT is the path to the parent folder of the root Gradle build file.\n#   - $ABI is the ABI to be built with. The specific value doesn\u0027t contribute to the value of the hash.\n#   - $HASH is the hash value computed from this text.\n#   - $CMAKE is the path to CMake 3.22.1.\n#   - $NINJA is the path to Ninja.\n-H$PROJECT/sdk/libcxx_helper\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_SYSTEM_VERSION\u003d21\n-DANDROID_PLATFORM\u003dandroid-21\n-DANDROID_ABI\u003d$ABI\n-DCMAKE_ANDROID_ARCH_ABI\u003d$ABI\n-DANDROID_NDK\u003d$NDK\n-DCMAKE_ANDROID_NDK\u003d$NDK\n-DCMAKE_TOOLCHAIN_FILE\u003d$NDK/build/cmake/android.toolchain.cmake\n-DCMAKE_MAKE_PROGRAM\u003d$NINJA\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d$PROJECT/sdk/build/intermediates/cxx/RelWithDebInfo/$HASH/obj/$ABI\n-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d$PROJECT/sdk/build/intermediates/cxx/RelWithDebInfo/$HASH/obj/$ABI\n-DCMAKE_BUILD_TYPE\u003dRelWithDebInfo\n-B$PROJECT/sdk/.cxx/RelWithDebInfo/$HASH/$ABI\n-GNinja\n-DANDROID_STL\u003dc++_shared",
   "configurationArguments": [
-    "-HD:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\libcxx_helper",
+    "-HE:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper",
     "-DCMAKE_SYSTEM_NAME\u003dAndroid",
     "-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON",
     "-DCMAKE_SYSTEM_VERSION\u003d21",
     "-DANDROID_PLATFORM\u003dandroid-21",
     "-DANDROID_ABI\u003dx86",
     "-DCMAKE_ANDROID_ARCH_ABI\u003dx86",
-    "-DANDROID_NDK\u003dC:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620",
-    "-DCMAKE_ANDROID_NDK\u003dC:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620",
-    "-DCMAKE_TOOLCHAIN_FILE\u003dC:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
-    "-DCMAKE_MAKE_PROGRAM\u003dC:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
-    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dD:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\build\\intermediates\\cxx\\RelWithDebInfo\\6m21653g\\obj\\x86",
-    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dD:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\build\\intermediates\\cxx\\RelWithDebInfo\\6m21653g\\obj\\x86",
+    "-DANDROID_NDK\u003dE:\\AndroidDev\\ndk\\23.1.7779620",
+    "-DCMAKE_ANDROID_NDK\u003dE:\\AndroidDev\\ndk\\23.1.7779620",
+    "-DCMAKE_TOOLCHAIN_FILE\u003dE:\\AndroidDev\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
+    "-DCMAKE_MAKE_PROGRAM\u003dE:\\AndroidDev\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dE:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\build\\intermediates\\cxx\\RelWithDebInfo\\6m21653g\\obj\\x86",
+    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dE:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\build\\intermediates\\cxx\\RelWithDebInfo\\6m21653g\\obj\\x86",
     "-DCMAKE_BUILD_TYPE\u003dRelWithDebInfo",
-    "-BD:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\.cxx\\RelWithDebInfo\\6m21653g\\x86",
+    "-BE:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\.cxx\\RelWithDebInfo\\6m21653g\\x86",
     "-GNinja",
     "-DANDROID_STL\u003dc++_shared"
   ],
-  "stlLibraryFile": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
-  "intermediatesParentFolder": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\build\\intermediates\\cxx\\RelWithDebInfo\\6m21653g"
+  "stlLibraryFile": "E:\\AndroidDev\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
+  "intermediatesParentFolder": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\build\\intermediates\\cxx\\RelWithDebInfo\\6m21653g"
 }

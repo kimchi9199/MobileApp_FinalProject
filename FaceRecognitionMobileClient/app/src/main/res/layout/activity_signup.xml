@@ -24,12 +24,25 @@
             <EditText
                 android:id="@+id/signup_email"
                 android:layout_width="350dp"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:background="@drawable/border"
                 android:layout_marginTop="25dp"
                 android:layout_marginLeft="7dp"
                 android:padding="8dp"
                 android:hint="Enter email"
+                android:drawableLeft="@drawable/baseline_email_24"
+                android:drawablePadding="12dp"
+                >
+            </EditText>
+            <EditText
+                android:id="@+id/signup_username"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:background="@drawable/border"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="7dp"
+                android:padding="8dp"
+                android:hint="Enter username"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="12dp"
                 >
@@ -37,9 +50,9 @@
             <EditText
                 android:id="@+id/signup_password"
                 android:layout_width="350dp"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:background="@drawable/border"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="7dp"
                 android:padding="8dp"
                 android:hint="Enter new password"
@@ -47,23 +60,24 @@
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="12dp"
                 />
-<!--            <EditText-->
-<!--                android:id="@+id/signup_confirm_password"-->
-<!--                android:layout_width="350dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:background="@drawable/border"-->
-<!--                android:layout_marginTop="30dp"-->
-<!--                android:layout_marginLeft="7dp"-->
-<!--                android:padding="8dp"-->
-<!--                android:hint="Confirm password"-->
-<!--                android:inputType="textPassword"-->
-<!--                android:drawableLeft="@drawable/baseline_password_24"-->
-<!--                android:drawablePadding="12dp"-->
-<!--                />-->
+            <EditText
+                android:id="@+id/signup_phone"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:background="@drawable/border"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="7dp"
+                android:padding="8dp"
+                android:hint="Enter phone"
+                android:inputType="textPassword"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="12dp"
+                />
             <ProgressBar
                 android:id="@+id/progressBar"
                 android:visibility="gone"
                 android:layout_width="wrap_content"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"/>
             <Button
                 android:id="@+id/btn_signup"

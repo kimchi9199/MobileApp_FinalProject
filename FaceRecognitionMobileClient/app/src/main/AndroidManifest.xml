@@ -23,6 +23,9 @@
         android:theme="@style/Theme.FaceRecognitionMobileClient"
         tools:targetApi="31">
         <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".LogoutActivity"
             android:exported="false" />
         <activity
@@ -34,7 +37,6 @@
         <activity
             android:name=".Card_View_Activity"
             android:exported="false" />
-
         <activity
             android:name=".Recycler_View"
             android:exported="false" />

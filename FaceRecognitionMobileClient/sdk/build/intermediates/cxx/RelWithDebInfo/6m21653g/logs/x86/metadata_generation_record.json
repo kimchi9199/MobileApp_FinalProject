@@ -2,7 +2,7 @@
   {
     "level_": 0,
     "message_": "Start JSON generation. Platform version: 21 min SDK version: x86",
-    "file_": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
     "tag_": "release|x86",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,
@@ -11,12 +11,12 @@
       "fieldsDescending": {}
     },
     "memoizedSize": -1,
-    "memoizedHashCode": -71766743
+    "memoizedHashCode": 405922079
   },
   {
     "level_": 0,
-    "message_": "JSON \u0027D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\.cxx\\RelWithDebInfo\\6m21653g\\x86\\android_gradle_build.json\u0027 was up-to-date",
-    "file_": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "message_": "JSON \u0027E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\.cxx\\RelWithDebInfo\\6m21653g\\x86\\android_gradle_build.json\u0027 was up-to-date",
+    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
     "tag_": "release|x86",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,
@@ -25,12 +25,12 @@
       "fieldsDescending": {}
     },
     "memoizedSize": -1,
-    "memoizedHashCode": -1284372356
+    "memoizedHashCode": -1677153650
   },
   {
     "level_": 0,
     "message_": "JSON generation completed without problems",
-    "file_": "D:\\Study\\Cirriculums\\IoT\\KC\\FaceRecognition\\FaceRecognition\\FaceRecognitionMobileClient - Copy\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
     "tag_": "release|x86",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,
@@ -39,6 +39,6 @@
       "fieldsDescending": {}
     },
     "memoizedSize": -1,
-    "memoizedHashCode": -279877578
+    "memoizedHashCode": 197811244
   }
 ]
