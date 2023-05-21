@@ -1,6 +1,9 @@
 package com.example.facerecognitionmobileclient;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -26,6 +29,7 @@ public class LogoutActivity extends AppCompatActivity {
     TextView textView;
     FirebaseUser user;
     TextView profilePhone, profileEmail, profileUsername, profilePassword;
+    String phoneUser, emailUser, usernameUser, passwordUser;
     TextView  titleUsername;
     Button editProfile, backHome;
 
@@ -51,6 +55,8 @@ public class LogoutActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 passUserData();
+
+
             }
         });
         backHome.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +78,7 @@ public class LogoutActivity extends AppCompatActivity {
         profilePassword.setText(user1.password);
 
     }
+    private ValueEventListener profileValueEventListener;
     public void passUserData(){
         String emailUsername = profileEmail.getText().toString().trim();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
@@ -80,21 +87,32 @@ public class LogoutActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
-                    String phoneFromDB = snapshot.child(emailUsername).child("phone").getValue(String.class);
-                    String emailFromDB = snapshot.child(emailUsername).child("email").getValue(String.class);
-                    String usernameFromDB = snapshot.child(emailUsername).child("username").getValue(String.class);
-                    String passwordFromDB = snapshot.child(emailUsername).child("password").getValue(String.class);
+                    String encodedEmail = emailUsername.replace(".", ",");
+                    String phoneFromDB = snapshot.child(encodedEmail).child("phone").getValue(String.class);
+                    String emailFromDB = snapshot.child(encodedEmail).child("email").getValue(String.class);
+                    String usernameFromDB = snapshot.child(encodedEmail).child("username").getValue(String.class);
+                    String passwordFromDB = snapshot.child(encodedEmail).child("password").getValue(String.class);
+
                     Intent intent = new Intent(LogoutActivity.this, EditProfileActivity.class);
-                    intent.putExtra("phone1", phoneFromDB);
-                    intent.putExtra("email1", emailFromDB);
-                    intent.putExtra("username1", usernameFromDB);
-                    intent.putExtra("password1", passwordFromDB);
+//                   // Update the UI with the updated data
+                    profilePhone.setText(phoneFromDB);
+                    profileEmail.setText(emailFromDB);
+                    profileUsername.setText(usernameFromDB);
+                    profilePassword.setText(passwordFromDB);
+//
                     startActivity(intent);
+                    User user = new User(emailFromDB, usernameFromDB, passwordFromDB, phoneFromDB);
+                    Singleton.getInstance().setData(user);
+
+
                 }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
+
+
         });
     }
+
 }
