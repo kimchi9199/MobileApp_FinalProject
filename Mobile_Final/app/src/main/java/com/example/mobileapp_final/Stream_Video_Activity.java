@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import com.example.mobileapp_final.Model_Detect.face_Recognition;
 
 import org.opencv.android.OpenCVLoader;
+import org.opencv.android.Utils;
+import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 
 import java.io.IOException;
@@ -85,6 +87,10 @@ public class Stream_Video_Activity extends AppCompatActivity {
                         String lText = new String(videoBuffer, 0, videoFramePacket.getLength());
                         byte[] decodeDataImg = Base64.decode(lText, Base64.DEFAULT);
                         Bitmap bitmap = BitmapFactory.decodeByteArray(decodeDataImg, 0, decodeDataImg.length);
+
+                        // Convert Bitmap to Mat
+                        Mat mat = new Mat(bitmap.getHeight(), bitmap.getWidth(), CvType.CV_8UC4);
+                        Utils.bitmapToMat(bitmap, mat);
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
