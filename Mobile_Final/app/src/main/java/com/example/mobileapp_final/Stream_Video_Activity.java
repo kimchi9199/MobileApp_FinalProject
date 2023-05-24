@@ -7,15 +7,25 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Log;
 import android.widget.ImageView;
+
+import com.example.mobileapp_final.Model_Detect.face_Recognition;
+
+import org.opencv.android.OpenCVLoader;
+import org.opencv.core.Mat;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
+
 public class Stream_Video_Activity extends AppCompatActivity {
     private ImageView mimageView;
+    private Mat mRgba;
+    private Mat mGray;
+    private face_Recognition faceRecognition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +39,21 @@ public class Stream_Video_Activity extends AppCompatActivity {
         final int CLIENT_PORT = 9090;
 
 
+
+        if (OpenCVLoader.initDebug())
+        {
+            Log.d("OpenCV", "onCreate: break");
+        }
+        try
+        {
+            int intputSize=96;
+            faceRecognition = new face_Recognition(getAssets(),
+                    this, "MobileNet.tflite",intputSize);
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+            Log.d("Stream_Video_Act","Model is not loaded");
+        }
         Thread receiveVideoThread = new Thread(new Runnable() {
             @Override
             public void run() {
