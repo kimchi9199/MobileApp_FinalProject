@@ -48,7 +48,7 @@ public class Stream_Video_Activity extends AppCompatActivity {
         {
             int intputSize=96;
             faceRecognition = new face_Recognition(getAssets(),
-                    this, "MobileNet.tflite",intputSize);
+                    this, "assets/MobileNet.tflite",intputSize);
         } catch (IOException e)
         {
             e.printStackTrace();
