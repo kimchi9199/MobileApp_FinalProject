@@ -149,4 +149,6 @@ android {
 
 dependencies {
 implementation 'com.google.firebase:firebase-auth:21.0.3'
+    implementation 'com.google.firebase:firebase-database-ktx:20.2.1'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.6.0'
 }
