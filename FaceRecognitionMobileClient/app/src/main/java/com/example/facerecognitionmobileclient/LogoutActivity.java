@@ -50,7 +50,7 @@ public class LogoutActivity extends AppCompatActivity {
 
 
         user= auth.getCurrentUser();
-        showAllUserData();
+//        showAllUserData();
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

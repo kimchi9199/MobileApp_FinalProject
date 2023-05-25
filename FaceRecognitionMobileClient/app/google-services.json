@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "142972215875",
+    "firebase_url": "https://facerecognition-ba75a-default-rtdb.firebaseio.com",
     "project_id": "facerecognition-ba75a",
     "storage_bucket": "facerecognition-ba75a.appspot.com"
   },
@@ -14,7 +15,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "142972215875-jet153ahnodin4124vs8ortq3tb54cqt.apps.googleusercontent.com",
+          "client_id": "142972215875-8jnmvoj9pr428o7h1agojsejihrpf0r1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android",
+            "certificate_hash": "fb37bb05832f13f777889c5e0940803208f6f9de"
+          }
+        },
+        {
+          "client_id": "142972215875-214i0b0n5bfu0hhh1ek0426d66kim1kc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +36,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "142972215875-jet153ahnodin4124vs8ortq3tb54cqt.apps.googleusercontent.com",
+              "client_id": "142972215875-214i0b0n5bfu0hhh1ek0426d66kim1kc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -43,7 +52,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "142972215875-jet153ahnodin4124vs8ortq3tb54cqt.apps.googleusercontent.com",
+          "client_id": "142972215875-214i0b0n5bfu0hhh1ek0426d66kim1kc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -56,7 +65,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "142972215875-jet153ahnodin4124vs8ortq3tb54cqt.apps.googleusercontent.com",
+              "client_id": "142972215875-214i0b0n5bfu0hhh1ek0426d66kim1kc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
