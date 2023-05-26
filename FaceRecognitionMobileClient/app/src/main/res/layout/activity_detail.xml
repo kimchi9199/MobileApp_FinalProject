@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/detailTitle"
-        android:text="Profile"
+        android:text="Detail Information"
         android:layout_marginTop="14dp"
         android:textSize="24sp"
         android:layout_gravity="center"
@@ -30,10 +30,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:padding="20dp"
-        android:text="Username"
+        android:text="Date"
         android:textAlignment="center"
         android:layout_gravity="center"
-        android:id="@+id/detailUsername"
+        android:id="@+id/detailDate"
         android:textSize="18sp"
         android:textColor="@color/lavender"/>
     <TextView
@@ -41,10 +41,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:padding="20dp"
-        android:text="Phone"
+        android:text="Description"
         android:textAlignment="center"
         android:layout_gravity="center"
-        android:id="@+id/detailPhone"
+        android:id="@+id/detailDesc"
         android:textSize="18sp"
         android:textColor="@color/lavender"/>
     <LinearLayout

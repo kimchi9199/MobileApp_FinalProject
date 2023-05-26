@@ -20,9 +20,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class DetailActivity extends AppCompatActivity {
-    TextView detailUsername, detailPhone;
+    TextView detailDate, detailDesc;
     ImageView detailImage;
-    String username, phone;
+    String date, desc;
     Button deleteButton, editButton;
     String key = "";
     String imageUrl = "";
@@ -34,46 +34,39 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         detailImage = findViewById(R.id.detailImage);
-        detailUsername = findViewById(R.id.detailUsername);
-        detailPhone = findViewById(R.id.detailPhone);
+        detailDate = findViewById(R.id.detailDate);
+        detailDesc = findViewById(R.id.detailDesc);
         deleteButton = findViewById(R.id.deleteButton);
         editButton = findViewById(R.id.editButton);
-        showData();
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null){
+            detailDesc.setText(bundle.getString("Description"));
+            detailDate.setText(bundle.getString("Date"));
+            key = bundle.getString("Key");
+            imageUrl = bundle.getString("Image");
+            Glide.with(this).load(bundle.getString("Image")).into(detailImage);
+        }
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Android Tutorials");
+                final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
                 FirebaseStorage storage = FirebaseStorage.getInstance();
                 StorageReference storageReference = storage.getReferenceFromUrl(imageUrl);
                 storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        reference.child(key).removeValue();
+                        reference.child(date).child(desc).removeValue();
                         Toast.makeText(DetailActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), ListShowActivity.class));
                         finish();
                     }
                 });
             }
         });
+
     }
-    public void showData() {
-        User user1 = Singleton.getInstance().getData();
-        username=user1.username;
-        phone=user1.phone;
 
-
-        detailUsername.setText(user1.username);
-        detailPhone.setText(user1.phone);
-
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null){
-
-            key = bundle.getString("Key");
-            imageUrl = bundle.getString("Image");
-            Glide.with(this).load(bundle.getString("Image")).into(detailImage);
-        }
-    }
 
 }

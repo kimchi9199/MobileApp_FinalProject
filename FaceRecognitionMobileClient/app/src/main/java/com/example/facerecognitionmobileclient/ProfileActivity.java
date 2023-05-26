@@ -42,7 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     ImageView uploadImage;
     Button saveButton, viewButton;
-    EditText uploadTopic, uploadUsername, uploadPhone;
+    EditText uploadTopic, uploadDate, uploadDesc;
     String imageURL;
     Uri uri;
 
@@ -52,8 +52,8 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_logout);
 
         uploadImage = findViewById(R.id.uploadImage);
-        uploadUsername = findViewById(R.id.uploaUsername);
-        uploadPhone = findViewById(R.id.uploadPhone);
+        uploadDate = findViewById(R.id.uploadDate);
+        uploadDesc = findViewById(R.id.uploadDesc);
 
         saveButton = findViewById(R.id.saveButton);
 
@@ -118,10 +118,10 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void uploadData(){
-        String username = uploadUsername.getText().toString();
-        String phone = uploadPhone.getText().toString();
+        String date = uploadDate.getText().toString();
+        String desc = uploadDesc.getText().toString();
 
-        User user = new User(username, phone, imageURL);
+        User user = new User(date, desc, imageURL);
         //We are changing the child from title to currentDate,
         // because we will be updating title as well and it may affect child value.
         String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
@@ -131,8 +131,7 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(ProfileActivity.this, "Saved", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(ProfileActivity.this, DetailActivity.class);
-                            startActivity(intent);
+
                             finish();
                         }
                     }
@@ -143,9 +142,6 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 });
 
-        Singleton.getInstance().setData(user);
-        Intent intent = new Intent(ProfileActivity.this, DetailActivity.class);
-        intent.putExtra("Image", user.getDataImage());
     }
 
 }

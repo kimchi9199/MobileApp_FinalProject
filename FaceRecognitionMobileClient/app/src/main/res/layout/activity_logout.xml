@@ -26,7 +26,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Update Profile"
+                android:text="Update Information"
                 android:textSize="30sp"
                 android:textAlignment="center"
                 android:textColor="@color/lavender"/>
@@ -42,23 +42,24 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:id="@+id/uploaUsername"
+                android:id="@+id/uploadDate"
                 android:background="@drawable/border"
                 android:layout_marginTop="20dp"
                 android:padding="16dp"
-                android:drawableLeft="@drawable/baseline_person_24"
-                android:hint=" Enter name"
+                android:drawableLeft="@drawable/baseline_calendar_month_24"
+                android:hint=" Enter date"
+
                 android:gravity="start|center_vertical"
                 android:textColor="@color/lavender"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:id="@+id/uploadPhone"
+                android:id="@+id/uploadDesc"
                 android:background="@drawable/border"
                 android:layout_marginTop="20dp"
-                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawableLeft="@drawable/baseline_description_24"
                 android:padding="16dp"
-                android:hint=" Enter phone"
+                android:hint=" Enter description"
                 android:gravity="start|center_vertical"
                 android:textColor="@color/lavender"/>
 

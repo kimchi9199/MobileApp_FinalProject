@@ -1,8 +1,16 @@
 package com.example.facerecognitionmobileclient;
 
 public class User {
-    String  email, username, phone;
+    String  date, desc;
     private String dataImage;
+    private String key;
+    public String getKey() {
+        return key;
+    }
+    public void setKey(String key) {
+        this.key = key;
+    }
+
 
     public String getDataImage() {
         return dataImage;
@@ -13,23 +21,23 @@ public class User {
     }
 
 
-    public String getPhone() {
-        return phone;
+    public String getDate() {
+        return date;
     }
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-    public void setUsername(String username) {
-        this.username = username;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public User(String username, String phone, String dataImage) {
-        this.phone = phone;
-        this.username = username;
+    public String getDesc() {
+        return desc;
+    }
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public User(String date, String desc, String dataImage) {
+        this.date = date;
+        this.desc = desc;
         this.dataImage=dataImage;
     }
     public User() {

@@ -34,7 +34,7 @@ public class EditProfileActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         usernameUser = editUsername.getText().toString();
-        showData();
+//        showData();
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,17 +96,17 @@ public class EditProfileActivity extends AppCompatActivity {
             return false;
         }
     }
-    public void showData() {
-        User user1 = Singleton.getInstance().getData();
-        emailUser = user1.email;
-        usernameUser=user1.username;
-        phoneUser=user1.phone;
-
-
-        editPhone.setText(user1.phone);
-        editEmail.setText(user1.email);
-        editUsername.setText(user1.username);
-
-    }
+//    public void showData() {
+//        User user1 = Singleton.getInstance().getData();
+//        emailUser = user1.email;
+//        usernameUser=user1.username;
+//        phoneUser=user1.phone;
+//
+//
+//        editPhone.setText(user1.phone);
+//        editEmail.setText(user1.email);
+//        editUsername.setText(user1.username);
+//
+//    }
 
 }
