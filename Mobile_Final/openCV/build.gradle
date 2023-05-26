@@ -87,7 +87,10 @@
 //       }
 //   }
 //
-plugins { id 'org.jetbrains.kotlin.android' version '1.7.10' }
+
+plugins {
+    id 'org.jetbrains.kotlin.android' version '1.7.10'
+}
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 

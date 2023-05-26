@@ -8,9 +8,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.mobileapp_final.fragment.all_devices_fragment;
+
+import org.opencv.android.OpenCVLoader;
 
 public class MainActivity extends AppCompatActivity {
     CardView cardView;
@@ -21,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         replaceFragment(new all_devices_fragment());
-
-
-
+        if (OpenCVLoader.initDebug()){
+            Log.d("OPENCV", "OK");
+        }
     }
 
     public void openRecyclerView(View view)
