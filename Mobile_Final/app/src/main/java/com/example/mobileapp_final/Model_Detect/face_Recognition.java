@@ -60,6 +60,7 @@ public class face_Recognition {
         interpreter=new Interpreter(loadModel(assetManager,modelPath),options);
         //when model is successfully load
         Log.d("face_Recognition", "face_Recognition: Model is loaded");
+
         //load haar cascade file
         try {
             //define input stream to read haar cascade file

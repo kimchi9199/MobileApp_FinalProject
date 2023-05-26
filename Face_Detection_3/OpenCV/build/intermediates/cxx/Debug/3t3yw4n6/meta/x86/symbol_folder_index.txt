@@ -1,0 +1,1 @@
+D:\Study\Cirriculums\Mobile-Developement\KC\FinalProject\MobileApp_FinalProject\Face_Detection_3\OpenCV\build\intermediates\cxx\Debug\3t3yw4n6\obj\x86

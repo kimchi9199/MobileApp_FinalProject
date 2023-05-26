@@ -1,0 +1,2 @@
+ninja: Entering directory `D:\Study\Cirriculums\Mobile-Developement\KC\FinalProject\MobileApp_FinalProject\Face_Detection\openCV\.cxx\Debug\3z5f2p62\x86_64'
+ninja: no work to do.
