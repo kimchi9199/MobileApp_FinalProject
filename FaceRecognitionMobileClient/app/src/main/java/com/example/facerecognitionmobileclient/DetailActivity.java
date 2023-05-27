@@ -36,8 +36,8 @@ public class DetailActivity extends AppCompatActivity {
         detailImage = findViewById(R.id.detailImage);
         detailDate = findViewById(R.id.detailDate);
         detailDesc = findViewById(R.id.detailDesc);
-        deleteButton = findViewById(R.id.deleteButton);
-        editButton = findViewById(R.id.editButton);
+//        deleteButton = findViewById(R.id.deleteButton);
+//        editButton = findViewById(R.id.editButton);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
@@ -48,23 +48,23 @@ public class DetailActivity extends AppCompatActivity {
             Glide.with(this).load(bundle.getString("Image")).into(detailImage);
         }
 
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
-                FirebaseStorage storage = FirebaseStorage.getInstance();
-                StorageReference storageReference = storage.getReferenceFromUrl(imageUrl);
-                storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        reference.child(date).child(desc).removeValue();
-                        Toast.makeText(DetailActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), ListShowActivity.class));
-                        finish();
-                    }
-                });
-            }
-        });
+//        deleteButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+//                FirebaseStorage storage = FirebaseStorage.getInstance();
+//                StorageReference storageReference = storage.getReferenceFromUrl(imageUrl);
+//                storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void unused) {
+//                        reference.child(date).child(desc).removeValue();
+//                        Toast.makeText(DetailActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
+//                        startActivity(new Intent(getApplicationContext(), ListShowActivity.class));
+//                        finish();
+//                    }
+//                });
+//            }
+//        });
 
     }
 

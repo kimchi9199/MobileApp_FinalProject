@@ -14,9 +14,15 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.example.facerecognitionmobileclient.fragment.all_devices_fragment;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     MaterialButton btnmenu;
     DatabaseReference databaseReference;
+    GoogleSignInClient gClient;
+    GoogleSignInOptions gOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +45,11 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView =  findViewById(R.id.bt_navigation_menu);
         btnmenu = findViewById(R.id.btnProfile);
 
+
         // Initialize the Firebase Realtime Database reference
         databaseReference = FirebaseDatabase.getInstance().getReference();
+        gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gClient = GoogleSignIn.getClient(this, gOptions);
 
         // Retrieve the data from the Firebase Realtime Database
 
@@ -48,10 +59,15 @@ public class MainActivity extends AppCompatActivity {
                 int id = item.getItemId();
 
                 if (id == R.id.page_2) {
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-                    return true;
+
+                    gClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            finish();
+                            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                        }
+                    });
+
                 }
                 return false;
             }
