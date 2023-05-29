@@ -41,6 +41,8 @@ import java.net.InetAddress;
 import java.util.Collections;
 import java.util.List;
 
+import javax.crypto.Cipher;
+
 public class MainActivity extends CameraActivity {
 
     JavaCameraView javaCameraView;
