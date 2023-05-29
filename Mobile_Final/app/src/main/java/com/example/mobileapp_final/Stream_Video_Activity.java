@@ -78,7 +78,7 @@ public class Stream_Video_Activity extends AppCompatActivity {
                     throw new RuntimeException(e);
                 }
 
-//                Received video frame from server and display them
+                // Received video frame from server and display them
                 try {
                     byte[] videoBuffer = new byte[BUFFER_SIZE];
                     DatagramPacket videoFramePacket = new DatagramPacket(videoBuffer, videoBuffer.length);

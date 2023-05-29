@@ -16,7 +16,7 @@ print(host_ip)
 port = 9999
 # socket_address = (host_ip, port)
 # server_socket.bind(socket_address)
-socket_address = ('192.168.1.7', port)
+socket_address = ('192.168.1.11', port)
 server_socket.bind(socket_address)
 print('Listening at: ', socket_address)
 
