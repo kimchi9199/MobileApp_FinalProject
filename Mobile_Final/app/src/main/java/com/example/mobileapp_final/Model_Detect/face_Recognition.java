@@ -72,7 +72,7 @@ public class face_Recognition {
         //load haar cascade file
         try {
             //define input stream to read haar cascade file
-            InputStream inputStream=context.getResources().openRawResource(R.raw.haarcascade_frontalface_alt);
+            InputStream inputStream=context.getResources().openRawResource(R.raw.haarcascade_frontalface_alt2);
 
             //create a new folder to save classifier
             File cascadeDir=context.getDir("cascade",Context.MODE_PRIVATE);
