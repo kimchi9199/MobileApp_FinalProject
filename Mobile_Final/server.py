@@ -4,7 +4,7 @@ import socket
 import cv2
 import imutils
 
-camera = cv2.VideoCapture(0) # 0 select first camera
+camera = cv2.VideoCapture(1) # 0 select first camera
 
 # UDP (realtime)
 BUFF_SIZE = 65536
@@ -16,7 +16,7 @@ print(host_ip)
 port = 9999
 # socket_address = (host_ip, port)
 # server_socket.bind(socket_address)
-socket_address = ('192.168.1.7', port)
+socket_address = ('192.168.1.9', port)
 server_socket.bind(socket_address)
 print('Listening at: ', socket_address)
 

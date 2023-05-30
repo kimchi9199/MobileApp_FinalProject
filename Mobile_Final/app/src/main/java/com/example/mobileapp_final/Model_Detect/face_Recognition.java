@@ -55,11 +55,20 @@ public class face_Recognition {
 
         //before load add number of threads
         options.setNumThreads(4);
-        //load model
 
-        interpreter=new Interpreter(loadModel(assetManager,modelPath),options);
+        try {
+            //load model
+            interpreter = new Interpreter(loadModel(assetManager, modelPath), options);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
         //when model is successfully load
         Log.d("face_Recognition", "face_Recognition: Model is loaded");
+
+
         //load haar cascade file
         try {
             //define input stream to read haar cascade file
@@ -97,29 +106,17 @@ public class face_Recognition {
 
     //create a new function with input and output Mat
     public Mat recognizeImage(Mat mat_image){
-        //rotate mat_image by 90 degree
-        Core.flip(mat_image.t(),mat_image,1);
-        //do all processing here
-        //convert mat_image to grayscale
-        Mat grayscaleImage=new Mat();
-        //                 input    output          type
-        Imgproc.cvtColor(mat_image,grayscaleImage,Imgproc.COLOR_RGB2GRAY);
-        //define height and width
-        height=grayscaleImage.height();
-        width=grayscaleImage.width();
-        //define minimum height and width of face in frame
-        //below this height and width face will be neglected
-        int absoluteFaceSize=(int) (height*0.1);
         MatOfRect faces=new MatOfRect();
-
-        //check cascadeclassifier is loaded or not
+//
+//        //check cascadeclassifier is loaded or not
         if(cascadeClassifier != null)
         {
-            //detect face in frame
-            //                                  input          output       scale of face
-            cascadeClassifier.detectMultiScale(grayscaleImage,faces,1.1,2,
-                                2,new Size(absoluteFaceSize,absoluteFaceSize),new Size());
-                                        //minimun size of face
+            try {
+                cascadeClassifier.detectMultiScale(mat_image, faces);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         //now convert faces to array
         Rect[] faceArray=faces.toArray();
@@ -130,44 +127,45 @@ public class face_Recognition {
             //                in/output starting point     end point         Color     R  G  B  alpha
             Imgproc.rectangle(mat_image,faceArray[i].tl(),faceArray[i].br(),new Scalar(0,255,0,255),
                             2);
-            //region of interest
-            Rect roi=new Rect((int)faceArray[i].tl().x,(int)faceArray[i].tl().y,
-                    ((int)faceArray[i].br().x)-((int)faceArray[i].tl().x),
-                    ((int)faceArray[i].br().y)-((int)faceArray[i].tl().y));
-            //roi is used to crop faces from image
-            Mat cropped_rgb=new Mat(mat_image,roi);
-            //now convert cropped_rgb to bitmap
-            Bitmap bitmap=null;
-            bitmap=Bitmap.createBitmap(cropped_rgb.cols(),cropped_rgb.rows(),Bitmap.Config.ARGB_8888);
-            Utils.matToBitmap(cropped_rgb,bitmap);
-            //Scale bitmap to model input size 96
-            Bitmap scaleBitmap=Bitmap.createScaledBitmap(bitmap,INPUT_SIZE,INPUT_SIZE,false);
-            //convert scaleBitmap to buteBuffer
-            //create convertBitmapToByteBuffer function
-            ByteBuffer byteBuffer=convertBitmapToByteBuffer(scaleBitmap);
 
-            //create output
-            float[][] face_value=new float[1][1];
-            interpreter.run(byteBuffer,face_value);
-            //To see face_val
-            Log.d("face_recognition","Out: "+ Array.get(Array.get(face_value,0),0));
-            //run
-            //--//            
-            float read_face=(float) Array.get(Array.get(face_value,0),0);
-            //Read face_value
-            //Create a new function input as read_face and output as name
-            String face_name=get_face_name(read_face);
-            
-            //puttext on frame
-            //              in/output       text
-            Imgproc.putText(mat_image,""+face_name,
-                    new Point((int)faceArray[i].tl().x+10,(int)faceArray[i].tl().y+20),
-                            1,1.5,new Scalar(255,255,255,150),2);
-            //                  size                    color   R   G   B   alpha   thickness
+//            //region of interest
+//            Rect roi=new Rect((int)faceArray[i].tl().x,(int)faceArray[i].tl().y,
+//                    ((int)faceArray[i].br().x)-((int)faceArray[i].tl().x),
+//                    ((int)faceArray[i].br().y)-((int)faceArray[i].tl().y));
+//            //roi is used to crop faces from image
+//            Mat cropped_rgb=new Mat(mat_image,roi);
+//            //now convert cropped_rgb to bitmap
+//            Bitmap bitmap=null;
+//            bitmap=Bitmap.createBitmap(cropped_rgb.cols(),cropped_rgb.rows(),Bitmap.Config.ARGB_8888);
+//            Utils.matToBitmap(cropped_rgb,bitmap);
+//            //Scale bitmap to model input size 96
+//            Bitmap scaleBitmap=Bitmap.createScaledBitmap(bitmap,INPUT_SIZE,INPUT_SIZE,false);
+//            //convert scaleBitmap to buteBuffer
+//            //create convertBitmapToByteBuffer function
+//            ByteBuffer byteBuffer=convertBitmapToByteBuffer(scaleBitmap);
+//
+//            //create output
+//            float[][] face_value=new float[1][1];
+//            interpreter.run(byteBuffer,face_value);
+//            //To see face_val
+//            Log.d("face_recognition","Out: "+ Array.get(Array.get(face_value,0),0));
+//            //run
+//            //--//
+//            float read_face=(float) Array.get(Array.get(face_value,0),0);
+//            //Read face_value
+//            //Create a new function input as read_face and output as name
+//            String face_name=get_face_name(read_face);
+//
+//            //puttext on frame
+//            //              in/output       text
+//            Imgproc.putText(mat_image,""+face_name,
+//                    new Point((int)faceArray[i].tl().x+10,(int)faceArray[i].tl().y+20),
+//                            1,1.5,new Scalar(255,255,255,150),2);
+//            //                  size                    color   R   G   B   alpha   thickness
         }
 
 
-        Core.flip(mat_image.t(),mat_image,0);
+//        Core.flip(mat_image.t(),mat_image,0);
 
         return mat_image;
     }
