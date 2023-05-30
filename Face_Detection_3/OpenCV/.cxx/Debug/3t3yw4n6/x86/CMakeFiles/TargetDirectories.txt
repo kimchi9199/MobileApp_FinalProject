@@ -1,0 +1,3 @@
+/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Face_Detection_3/OpenCV/.cxx/Debug/3t3yw4n6/x86/CMakeFiles/opencv_jni_shared.dir
+/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Face_Detection_3/OpenCV/.cxx/Debug/3t3yw4n6/x86/CMakeFiles/edit_cache.dir
+/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Face_Detection_3/OpenCV/.cxx/Debug/3t3yw4n6/x86/CMakeFiles/rebuild_cache.dir

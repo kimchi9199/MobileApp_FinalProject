@@ -129,39 +129,45 @@ public class face_Recognition {
                             2);
 
 //            //region of interest
-//            Rect roi=new Rect((int)faceArray[i].tl().x,(int)faceArray[i].tl().y,
-//                    ((int)faceArray[i].br().x)-((int)faceArray[i].tl().x),
-//                    ((int)faceArray[i].br().y)-((int)faceArray[i].tl().y));
-//            //roi is used to crop faces from image
-//            Mat cropped_rgb=new Mat(mat_image,roi);
-//            //now convert cropped_rgb to bitmap
-//            Bitmap bitmap=null;
-//            bitmap=Bitmap.createBitmap(cropped_rgb.cols(),cropped_rgb.rows(),Bitmap.Config.ARGB_8888);
-//            Utils.matToBitmap(cropped_rgb,bitmap);
-//            //Scale bitmap to model input size 96
-//            Bitmap scaleBitmap=Bitmap.createScaledBitmap(bitmap,INPUT_SIZE,INPUT_SIZE,false);
-//            //convert scaleBitmap to buteBuffer
-//            //create convertBitmapToByteBuffer function
-//            ByteBuffer byteBuffer=convertBitmapToByteBuffer(scaleBitmap);
+            Rect roi=new Rect((int)faceArray[i].tl().x,(int)faceArray[i].tl().y,
+                    ((int)faceArray[i].br().x)-((int)faceArray[i].tl().x),
+                    ((int)faceArray[i].br().y)-((int)faceArray[i].tl().y));
+            //roi is used to crop faces from image
+            Mat cropped_rgb=new Mat(mat_image,roi);
+            //now convert cropped_rgb to bitmap
+            Bitmap bitmap=null;
+            bitmap=Bitmap.createBitmap(cropped_rgb.cols(),cropped_rgb.rows(),Bitmap.Config.ARGB_8888);
+            Utils.matToBitmap(cropped_rgb,bitmap);
+            //Scale bitmap to model input size 96
+            Bitmap scaleBitmap=Bitmap.createScaledBitmap(bitmap,INPUT_SIZE,INPUT_SIZE,false);
+            //convert scaleBitmap to byteBuffer
+            //create convertBitmapToByteBuffer function
+            ByteBuffer byteBuffer=convertBitmapToByteBuffer(scaleBitmap);
 //
-//            //create output
-//            float[][] face_value=new float[1][1];
-//            interpreter.run(byteBuffer,face_value);
-//            //To see face_val
-//            Log.d("face_recognition","Out: "+ Array.get(Array.get(face_value,0),0));
+            //create output
+            float[][] face_value=new float[1][1];
+            try {
+                interpreter.run(byteBuffer,face_value);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+
+            //To see face_val
+            Log.d("face_recognition","Out: "+ Array.get(Array.get(face_value,0),0));
 //            //run
 //            //--//
-//            float read_face=(float) Array.get(Array.get(face_value,0),0);
-//            //Read face_value
-//            //Create a new function input as read_face and output as name
-//            String face_name=get_face_name(read_face);
+            float read_face=(float) Array.get(Array.get(face_value,0),0);
+            //Read face_value
+            //Create a new function input as read_face and output as name
+            String face_name=get_face_name(read_face);
 //
-//            //puttext on frame
-//            //              in/output       text
-//            Imgproc.putText(mat_image,""+face_name,
-//                    new Point((int)faceArray[i].tl().x+10,(int)faceArray[i].tl().y+20),
-//                            1,1.5,new Scalar(255,255,255,150),2);
-//            //                  size                    color   R   G   B   alpha   thickness
+            Log.d("ABC",face_name);
+            //put text on frame
+            //              in/output       text
+            Imgproc.putText(mat_image,""+face_name,
+                    new Point((int)faceArray[i].tl().x+10,(int)faceArray[i].tl().y+20),
+                            1,1.5,new Scalar(255,255,255,150),2);
+            //                  size                    color   R   G   B   alpha   thickness
         }
 
 
@@ -174,11 +180,11 @@ public class face_Recognition {
         String val="";
         if (read_face>=0 & read_face<0.5)
         {
-            val="Chi Pu";
+            val="Courteney Cox";
         }
         else if (read_face>=0.5 & read_face<1.5)
         {
-            val="Bảo Anh";
+            val="Aenol Schwarenegger";
         }
         else if (read_face>=1.5 & read_face<2.5)
         {
@@ -237,36 +243,52 @@ public class face_Recognition {
     }
 
     private ByteBuffer convertBitmapToByteBuffer(Bitmap scaleBitmap) {
-        //define ByteBuffer
-        ByteBuffer byteBuffer;
-        //define input size
-        int input_size=INPUT_SIZE;
-        //multiply by 4 if input of model is float
-        //multiply by 3 if input of model is RGB
-        //if input is GRAY 3->1
-        byteBuffer=ByteBuffer.allocateDirect(4*1*input_size*3);
-        byteBuffer.order(ByteOrder.nativeOrder());
-        int[] intValues=new int[input_size*input_size];
-        scaleBitmap.getPixels(intValues,0,scaleBitmap.getWidth(),0,0,
-                                scaleBitmap.getWidth(),scaleBitmap.getHeight());
-        int pixels=0;
-        //loop through each pixels
-        for(int i=0;i<input_size;i++)
-        {
-            for (int j=0;j<input_size;j++)
-            {
-                //each pixels value
-                final int val=intValues[pixels++];
-                //put this pixel's values int bytebuffer
-                byteBuffer.putFloat((((val>>16)&0xFF))/255.0f);
-                byteBuffer.putFloat(((((val>>8))&0xFF))/255.0f);
-                byteBuffer.putFloat(((val&0xFF))/255.0f);
-                //these things is important
-                //it is placing RGB to MSB to LSB
+//        //define ByteBuffer
+//        ByteBuffer byteBuffer;
+//        //define input size
+//        int input_size=INPUT_SIZE;
+//        //multiply by 4 if input of model is float
+//        //multiply by 3 if input of model is RGB
+//        //if input is GRAY 3->1
+//        byteBuffer=ByteBuffer.allocateDirect(4*1*input_size*3);
+//        byteBuffer.order(ByteOrder.nativeOrder());
+//        int[] intValues=new int[input_size*input_size];
+//        scaleBitmap.getPixels(intValues,0,scaleBitmap.getWidth(),0,0,
+//                                scaleBitmap.getWidth(),scaleBitmap.getHeight());
+//        int pixels=0;
+//        //loop through each pixels
+//        for(int i=0;i<input_size;i++)
+//        {
+//            for (int j=0;j<input_size;j++)
+//            {
+//                //each pixels value
+//                final int val=intValues[pixels++];
+//                //put this pixel's values int bytebuffer
+//                byteBuffer.putFloat((((val>>16)&0xFF))/255.0f);
+//                byteBuffer.putFloat(((((val>>8))&0xFF))/255.0f);
+//                byteBuffer.putFloat(((val&0xFF))/255.0f);
+//                //these things is important
+//                //it is placing RGB to MSB to LSB
+//
+//            }
+//        }
+//        return byteBuffer;
 
-            }
-        }
-        return byteBuffer;
+            int size = scaleBitmap.getRowBytes() * scaleBitmap.getHeight();
+            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(size);
+
+            // Enable native byte order
+            byteBuffer.order(ByteOrder.nativeOrder());
+
+            // Copy the bitmap's pixels into the ByteBuffer
+            scaleBitmap.copyPixelsToBuffer(byteBuffer);
+
+            // Reset the ByteBuffer's position to the beginning
+            byteBuffer.rewind();
+
+            return byteBuffer;
+
+
 
     }
 
