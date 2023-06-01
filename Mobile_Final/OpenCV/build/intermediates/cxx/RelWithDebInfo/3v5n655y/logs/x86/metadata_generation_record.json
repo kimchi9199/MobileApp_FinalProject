@@ -2,7 +2,7 @@
   {
     "level_": 0,
     "message_": "Start JSON generation. Platform version: 24 min SDK version: x86",
-    "file_": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "file_": "/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
     "tag_": "release|x86",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,
@@ -11,12 +11,12 @@
       "fieldsDescending": {}
     },
     "memoizedSize": -1,
-    "memoizedHashCode": -1572603255
+    "memoizedHashCode": -372898384
   },
   {
     "level_": 0,
-    "message_": "JSON \u0027D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\.cxx\\RelWithDebInfo\\3v5n655y\\x86\\android_gradle_build.json\u0027 was up-to-date",
-    "file_": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "message_": "rebuilding JSON /Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/.cxx/RelWithDebInfo/3v5n655y/x86/android_gradle_build.json due to:",
+    "file_": "/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
     "tag_": "release|x86",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,
@@ -25,12 +25,124 @@
       "fieldsDescending": {}
     },
     "memoizedSize": -1,
-    "memoizedHashCode": 1975014863
+    "memoizedHashCode": -1834981827
+  },
+  {
+    "level_": 0,
+    "message_": "- no fingerprint file, will remove stale configuration folder",
+    "file_": "/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1781284672
+  },
+  {
+    "level_": 0,
+    "message_": "removing stale contents from \u0027/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/.cxx/RelWithDebInfo/3v5n655y/x86\u0027",
+    "file_": "/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 2056544622
+  },
+  {
+    "level_": 0,
+    "message_": "created folder \u0027/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/.cxx/RelWithDebInfo/3v5n655y/x86\u0027",
+    "file_": "/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -375424798
+  },
+  {
+    "level_": 0,
+    "message_": "executing cmake /Users/sarah/Library/Android/sdk/cmake/3.22.1/bin/cmake \\\n  \"-H/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper\" \\\n  -DCMAKE_SYSTEM_NAME\u003dAndroid \\\n  -DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON \\\n  -DCMAKE_SYSTEM_VERSION\u003d24 \\\n  -DANDROID_PLATFORM\u003dandroid-24 \\\n  -DANDROID_ABI\u003dx86 \\\n  -DCMAKE_ANDROID_ARCH_ABI\u003dx86 \\\n  -DANDROID_NDK\u003d/Users/sarah/Library/Android/sdk/ndk/23.1.7779620 \\\n  -DCMAKE_ANDROID_NDK\u003d/Users/sarah/Library/Android/sdk/ndk/23.1.7779620 \\\n  -DCMAKE_TOOLCHAIN_FILE\u003d/Users/sarah/Library/Android/sdk/ndk/23.1.7779620/build/cmake/android.toolchain.cmake \\\n  -DCMAKE_MAKE_PROGRAM\u003d/Users/sarah/Library/Android/sdk/cmake/3.22.1/bin/ninja \\\n  \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/build/intermediates/cxx/RelWithDebInfo/3v5n655y/obj/x86\" \\\n  \"-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/build/intermediates/cxx/RelWithDebInfo/3v5n655y/obj/x86\" \\\n  -DCMAKE_BUILD_TYPE\u003dRelWithDebInfo \\\n  \"-B/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/.cxx/RelWithDebInfo/3v5n655y/x86\" \\\n  -GNinja \\\n  -DANDROID_STL\u003dc++_shared\n",
+    "file_": "/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 843193370
+  },
+  {
+    "level_": 0,
+    "message_": "/Users/sarah/Library/Android/sdk/cmake/3.22.1/bin/cmake \\\n  \"-H/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper\" \\\n  -DCMAKE_SYSTEM_NAME\u003dAndroid \\\n  -DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON \\\n  -DCMAKE_SYSTEM_VERSION\u003d24 \\\n  -DANDROID_PLATFORM\u003dandroid-24 \\\n  -DANDROID_ABI\u003dx86 \\\n  -DCMAKE_ANDROID_ARCH_ABI\u003dx86 \\\n  -DANDROID_NDK\u003d/Users/sarah/Library/Android/sdk/ndk/23.1.7779620 \\\n  -DCMAKE_ANDROID_NDK\u003d/Users/sarah/Library/Android/sdk/ndk/23.1.7779620 \\\n  -DCMAKE_TOOLCHAIN_FILE\u003d/Users/sarah/Library/Android/sdk/ndk/23.1.7779620/build/cmake/android.toolchain.cmake \\\n  -DCMAKE_MAKE_PROGRAM\u003d/Users/sarah/Library/Android/sdk/cmake/3.22.1/bin/ninja \\\n  \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/build/intermediates/cxx/RelWithDebInfo/3v5n655y/obj/x86\" \\\n  \"-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/build/intermediates/cxx/RelWithDebInfo/3v5n655y/obj/x86\" \\\n  -DCMAKE_BUILD_TYPE\u003dRelWithDebInfo \\\n  \"-B/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/.cxx/RelWithDebInfo/3v5n655y/x86\" \\\n  -GNinja \\\n  -DANDROID_STL\u003dc++_shared\n",
+    "file_": "/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1125266599
+  },
+  {
+    "level_": 0,
+    "message_": "Exiting generation of /Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/.cxx/RelWithDebInfo/3v5n655y/x86/compile_commands.json.bin normally",
+    "file_": "/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1380323527
+  },
+  {
+    "level_": 0,
+    "message_": "done executing cmake",
+    "file_": "/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 103671104
+  },
+  {
+    "level_": 0,
+    "message_": "hard linked /Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/.cxx/RelWithDebInfo/3v5n655y/x86/compile_commands.json to /Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/.cxx/tools/release/x86/compile_commands.json",
+    "file_": "/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
+    "tag_": "release|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -989930241
   },
   {
     "level_": 0,
     "message_": "JSON generation completed without problems",
-    "file_": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "file_": "/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
     "tag_": "release|x86",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,
@@ -39,6 +151,6 @@
       "fieldsDescending": {}
     },
     "memoizedSize": -1,
-    "memoizedHashCode": 842039317
+    "memoizedHashCode": 2041744188
   }
 ]

@@ -35,7 +35,7 @@ public class Stream_Video_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_stream_video);
         mimageView = findViewById(R.id.Iv_Streamvideo);
 
-        final String SERVER_IP = "192.168.1.5"; // Server IP address
+        final String SERVER_IP = "192.168.1.127"; // Server IP address
         final int SERVER_PORT = 9999; // Server port number
         final int BUFFER_SIZE = 65536; // Buffer size in bytes
         final int CLIENT_PORT = 9090;
