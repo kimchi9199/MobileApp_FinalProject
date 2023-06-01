@@ -33,41 +33,52 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
 public class face_Recognition {
+
     //implementation of tensorflow
-    private Interpreter interpreter;
+    private Interpreter interpreter = null;
     //define input size of model
-    private int INPUT_SIZE;
+    private int INPUT_SIZE = 0;
+
+    //define model input size
+    private int modelInputSize = 0;
     //define height and width of frame
-    private int height=0;
-    private int width=0;
+    private int inputImageHeight = 0;
+    private int inputImageWidth = 0;
     //now define Gpudelegate
     private GpuDelegate gpuDelegate=null;// run model using GPU
     private CascadeClassifier cascadeClassifier;
 
+    private  int FLOAT_TYPE_SIZE = 4;
+    private int  PIXEL_SIZE = 3;
+
     //create
-    public face_Recognition(AssetManager assetManager, Context context, String modelPath, int input_size) throws IOException{
+    public face_Recognition(AssetManager assetManager, Context context, String modelFileName, int input_size) throws IOException{
 
         //get inputsize
         INPUT_SIZE = input_size;
         //set GPU for the interpreter
         Interpreter.Options options = new Interpreter.Options();
-        gpuDelegate=new GpuDelegate();
+        gpuDelegate = new GpuDelegate();
 
         //before load add number of threads
         options.setNumThreads(4);
 
         try {
             //load model
-            interpreter = new Interpreter(loadModel(assetManager, modelPath), options);
+            ByteBuffer model = loadModel(assetManager, modelFileName);
+            interpreter = new Interpreter(model, options);
+            //when model is successfully load
+            Log.d("MODEL", "face_Recognition: Model is loaded");
+
+//            // Read model input shape from model file
+            int[] inputShape = interpreter.getInputTensor(0).shape();
+            inputImageWidth = inputShape[1];
+            inputImageHeight = inputShape[2];
+            modelInputSize = FLOAT_TYPE_SIZE * inputImageWidth * inputImageHeight * PIXEL_SIZE; // still has bug
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
-        //when model is successfully load
-        Log.d("face_Recognition", "face_Recognition: Model is loaded");
-
 
         //load haar cascade file
         try {
@@ -141,6 +152,8 @@ public class face_Recognition {
             //Scale bitmap to model input size 96
             Bitmap scaleBitmap=Bitmap.createScaledBitmap(bitmap,INPUT_SIZE,INPUT_SIZE,false);
             //convert scaleBitmap to byteBuffer
+
+
             //create convertBitmapToByteBuffer function
             ByteBuffer byteBuffer=convertBitmapToByteBuffer(scaleBitmap);
 //
@@ -238,11 +251,39 @@ public class face_Recognition {
         {
             val="Chi Dân";
         }
+        else {
+            val = "Stranger";
+        }
         
         return val;
     }
 
     private ByteBuffer convertBitmapToByteBuffer(Bitmap scaleBitmap) {
+
+        try {
+            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(modelInputSize);
+            byteBuffer.order(ByteOrder.nativeOrder());
+
+            int[] pixels = new int[inputImageWidth * inputImageHeight];
+            scaleBitmap.getPixels(pixels, 0, scaleBitmap.getWidth(), 0, 0, scaleBitmap.getWidth(), scaleBitmap.getHeight());
+
+            for (int pixelValue: pixels) {
+                int r = (pixelValue >> 16 & 0xFF);
+                int g = (pixelValue >> 8 & 0xFF);
+                int b = (pixelValue & 0xFF);
+
+                // normalize pixel values
+                float normalizedPixelValue = (r + b + g) / 3.0f / 255.0f;
+                byteBuffer.putFloat(normalizedPixelValue);
+            }
+            return byteBuffer;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
+//
 //        //define ByteBuffer
 //        ByteBuffer byteBuffer;
 //        //define input size
@@ -257,50 +298,49 @@ public class face_Recognition {
 //                                scaleBitmap.getWidth(),scaleBitmap.getHeight());
 //        int pixels=0;
 //        //loop through each pixels
-//        for(int i=0;i<input_size;i++)
-//        {
-//            for (int j=0;j<input_size;j++)
-//            {
-//                //each pixels value
-//                final int val=intValues[pixels++];
-//                //put this pixel's values int bytebuffer
-//                byteBuffer.putFloat((((val>>16)&0xFF))/255.0f);
-//                byteBuffer.putFloat(((((val>>8))&0xFF))/255.0f);
-//                byteBuffer.putFloat(((val&0xFF))/255.0f);
-//                //these things is important
-//                //it is placing RGB to MSB to LSB
+////        for(int i=0;i<input_size;i++)
+////        {
+////            for (int j=0;j<input_size;j++)
+////            {
+////                //each pixels value
+////                final int val=intValues[pixels++];
+////                //put this pixel's values int bytebuffer
+////                byteBuffer.putFloat((((val>>16)&0xFF))/255.0f);
+////                byteBuffer.putFloat(((((val>>8))&0xFF))/255.0f);
+////                byteBuffer.putFloat(((val&0xFF))/255.0f);
+////                //these things is important
+////                //it is placing RGB to MSB to LSB
+////
+////            }
+////        }
+////
+////            int size = scaleBitmap.getRowBytes() * scaleBitmap.getHeight();
+////            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(size);
+////
+////            // Enable native byte order
+////            byteBuffer.order(ByteOrder.nativeOrder());
+////
+////            // Copy the bitmap's pixels into the ByteBuffer
+////            scaleBitmap.copyPixelsToBuffer(byteBuffer);
+////
+////            // Reset the ByteBuffer's position to the beginning
+////            byteBuffer.rewind();
 //
-//            }
-//        }
-//        return byteBuffer;
-
-            int size = scaleBitmap.getRowBytes() * scaleBitmap.getHeight();
-            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(size);
-
-            // Enable native byte order
-            byteBuffer.order(ByteOrder.nativeOrder());
-
-            // Copy the bitmap's pixels into the ByteBuffer
-            scaleBitmap.copyPixelsToBuffer(byteBuffer);
-
-            // Reset the ByteBuffer's position to the beginning
-            byteBuffer.rewind();
-
-            return byteBuffer;
-
-
-
+//            return byteBuffer;
     }
 
+
     //Function to load model
-    private MappedByteBuffer loadModel(AssetManager assetManager, String modelPath) throws IOException{
-        //Decription of modelPath
-        AssetFileDescriptor assetFileDescriptor= assetManager.openFd(modelPath);
-        //Create a inputstream to read model path
-        FileInputStream inputStream = new FileInputStream((assetFileDescriptor.getFileDescriptor()));
+    private ByteBuffer loadModel(AssetManager assetManager, String modelFileName) throws IOException{
+        
+        //Description of modelPath
+        AssetFileDescriptor assetFileDescriptor= assetManager.openFd(modelFileName);
+
+        //Create a input stream to read model path
+        FileInputStream inputStream = new FileInputStream(assetFileDescriptor.getFileDescriptor());
         FileChannel fileChannel=inputStream.getChannel();
 
-        long startOffset=assetFileDescriptor.getDeclaredLength();
+        long startOffset = assetFileDescriptor.getStartOffset();
         long declaredLength=assetFileDescriptor.getDeclaredLength();
         return  fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset,declaredLength);
     }

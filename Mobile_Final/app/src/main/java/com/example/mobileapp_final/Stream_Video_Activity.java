@@ -35,7 +35,7 @@ public class Stream_Video_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_stream_video);
         mimageView = findViewById(R.id.Iv_Streamvideo);
 
-        final String SERVER_IP = "192.168.1.5"; // Server IP address
+        final String SERVER_IP = "192.168.1.9"; // Server IP address
         final int SERVER_PORT = 9999; // Server port number
         final int BUFFER_SIZE = 65536; // Buffer size in bytes
         final int CLIENT_PORT = 9090;
@@ -49,11 +49,11 @@ public class Stream_Video_Activity extends AppCompatActivity {
 
         try
         {
-            int intputSize=64;
+            int intputSize=96;
             faceRecognition = new face_Recognition(
-                    getAssets(),
+                    Stream_Video_Activity.this.getAssets(),
                     Stream_Video_Activity.this,
-                    "assets/model2.tflite",
+                    "MobileNet.tflite",
                     intputSize);
         } catch (IOException e)
         {
@@ -99,21 +99,17 @@ public class Stream_Video_Activity extends AppCompatActivity {
                         Mat result_mat = faceRecognition.recognizeImage(mat);
                         Log.d("OK2", "1");
 
-
                         //show img view -> convert to bitmap
 
                         // Convert Mat to Bitmap
                         Bitmap result_bitmap = Bitmap.createBitmap(result_mat.cols(), result_mat.rows(), Bitmap.Config.ARGB_8888);
                         Utils.matToBitmap(result_mat, result_bitmap);
-
-
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 mimageView.setImageBitmap(result_bitmap);
                             }
                         });
-
                     }
                 } catch (Exception e){
                     e.printStackTrace();
