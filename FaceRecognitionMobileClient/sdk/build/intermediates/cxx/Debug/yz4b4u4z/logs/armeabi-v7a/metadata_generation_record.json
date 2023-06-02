@@ -1,0 +1,156 @@
+[
+  {
+    "level_": 0,
+    "message_": "Start JSON generation. Platform version: 21 min SDK version: armeabi-v7a",
+    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 641821335
+  },
+  {
+    "level_": 0,
+    "message_": "rebuilding JSON E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\.cxx\\Debug\\yz4b4u4z\\armeabi-v7a\\android_gradle_build.json due to:",
+    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1567555805
+  },
+  {
+    "level_": 0,
+    "message_": "- no fingerprint file, will remove stale configuration folder",
+    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1609367804
+  },
+  {
+    "level_": 0,
+    "message_": "removing stale contents from \u0027E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\.cxx\\Debug\\yz4b4u4z\\armeabi-v7a\u0027",
+    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -2046541463
+  },
+  {
+    "level_": 0,
+    "message_": "created folder \u0027E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\.cxx\\Debug\\yz4b4u4z\\armeabi-v7a\u0027",
+    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -291930507
+  },
+  {
+    "level_": 0,
+    "message_": "executing cmake @echo off\n\"E:\\\\AndroidDev\\\\cmake\\\\3.22.1\\\\bin\\\\cmake.exe\" ^\n  \"-HE:\\\\Download\\\\FaceRecognition - Final\\\\FaceRecognition - Final\\\\FaceRecognitionMobileClient\\\\sdk\\\\libcxx_helper\" ^\n  \"-DCMAKE_SYSTEM_NAME\u003dAndroid\" ^\n  \"-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\" ^\n  \"-DCMAKE_SYSTEM_VERSION\u003d21\" ^\n  \"-DANDROID_PLATFORM\u003dandroid-21\" ^\n  \"-DANDROID_ABI\u003darmeabi-v7a\" ^\n  \"-DCMAKE_ANDROID_ARCH_ABI\u003darmeabi-v7a\" ^\n  \"-DANDROID_NDK\u003dE:\\\\AndroidDev\\\\ndk\\\\23.1.7779620\" ^\n  \"-DCMAKE_ANDROID_NDK\u003dE:\\\\AndroidDev\\\\ndk\\\\23.1.7779620\" ^\n  \"-DCMAKE_TOOLCHAIN_FILE\u003dE:\\\\AndroidDev\\\\ndk\\\\23.1.7779620\\\\build\\\\cmake\\\\android.toolchain.cmake\" ^\n  \"-DCMAKE_MAKE_PROGRAM\u003dE:\\\\AndroidDev\\\\cmake\\\\3.22.1\\\\bin\\\\ninja.exe\" ^\n  \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dE:\\\\Download\\\\FaceRecognition - Final\\\\FaceRecognition - Final\\\\FaceRecognitionMobileClient\\\\sdk\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\yz4b4u4z\\\\obj\\\\armeabi-v7a\" ^\n  \"-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dE:\\\\Download\\\\FaceRecognition - Final\\\\FaceRecognition - Final\\\\FaceRecognitionMobileClient\\\\sdk\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\yz4b4u4z\\\\obj\\\\armeabi-v7a\" ^\n  \"-DCMAKE_BUILD_TYPE\u003dDebug\" ^\n  \"-BE:\\\\Download\\\\FaceRecognition - Final\\\\FaceRecognition - Final\\\\FaceRecognitionMobileClient\\\\sdk\\\\.cxx\\\\Debug\\\\yz4b4u4z\\\\armeabi-v7a\" ^\n  -GNinja ^\n  \"-DANDROID_STL\u003dc++_shared\"\n",
+    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 601740352
+  },
+  {
+    "level_": 0,
+    "message_": "@echo off\n\"E:\\\\AndroidDev\\\\cmake\\\\3.22.1\\\\bin\\\\cmake.exe\" ^\n  \"-HE:\\\\Download\\\\FaceRecognition - Final\\\\FaceRecognition - Final\\\\FaceRecognitionMobileClient\\\\sdk\\\\libcxx_helper\" ^\n  \"-DCMAKE_SYSTEM_NAME\u003dAndroid\" ^\n  \"-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\" ^\n  \"-DCMAKE_SYSTEM_VERSION\u003d21\" ^\n  \"-DANDROID_PLATFORM\u003dandroid-21\" ^\n  \"-DANDROID_ABI\u003darmeabi-v7a\" ^\n  \"-DCMAKE_ANDROID_ARCH_ABI\u003darmeabi-v7a\" ^\n  \"-DANDROID_NDK\u003dE:\\\\AndroidDev\\\\ndk\\\\23.1.7779620\" ^\n  \"-DCMAKE_ANDROID_NDK\u003dE:\\\\AndroidDev\\\\ndk\\\\23.1.7779620\" ^\n  \"-DCMAKE_TOOLCHAIN_FILE\u003dE:\\\\AndroidDev\\\\ndk\\\\23.1.7779620\\\\build\\\\cmake\\\\android.toolchain.cmake\" ^\n  \"-DCMAKE_MAKE_PROGRAM\u003dE:\\\\AndroidDev\\\\cmake\\\\3.22.1\\\\bin\\\\ninja.exe\" ^\n  \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dE:\\\\Download\\\\FaceRecognition - Final\\\\FaceRecognition - Final\\\\FaceRecognitionMobileClient\\\\sdk\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\yz4b4u4z\\\\obj\\\\armeabi-v7a\" ^\n  \"-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dE:\\\\Download\\\\FaceRecognition - Final\\\\FaceRecognition - Final\\\\FaceRecognitionMobileClient\\\\sdk\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\yz4b4u4z\\\\obj\\\\armeabi-v7a\" ^\n  \"-DCMAKE_BUILD_TYPE\u003dDebug\" ^\n  \"-BE:\\\\Download\\\\FaceRecognition - Final\\\\FaceRecognition - Final\\\\FaceRecognitionMobileClient\\\\sdk\\\\.cxx\\\\Debug\\\\yz4b4u4z\\\\armeabi-v7a\" ^\n  -GNinja ^\n  \"-DANDROID_STL\u003dc++_shared\"\n",
+    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 695392319
+  },
+  {
+    "level_": 0,
+    "message_": "Exiting generation of E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\.cxx\\Debug\\yz4b4u4z\\armeabi-v7a\\compile_commands.json.bin normally",
+    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 612799819
+  },
+  {
+    "level_": 0,
+    "message_": "done executing cmake",
+    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -800643716
+  },
+  {
+    "level_": 0,
+    "message_": "hard linked E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\.cxx\\Debug\\yz4b4u4z\\armeabi-v7a\\compile_commands.json to E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\.cxx\\tools\\debug\\armeabi-v7a\\compile_commands.json",
+    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -248112993
+  },
+  {
+    "level_": 0,
+    "message_": "JSON generation completed without problems",
+    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1137429368
+  }
+]
