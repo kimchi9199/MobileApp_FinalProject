@@ -1,5 +1,5 @@
 @echo off
-"E:\\AndroidDev\\cmake\\3.22.1\\bin\\ninja.exe" ^
+"C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe" ^
   -C ^
-  "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\.cxx\\Debug\\yz4b4u4z\\arm64-v8a" ^
+  "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\FaceRecognitionMobileClient\\sdk\\.cxx\\Debug\\yz4b4u4z\\arm64-v8a" ^
   opencv_jni_shared

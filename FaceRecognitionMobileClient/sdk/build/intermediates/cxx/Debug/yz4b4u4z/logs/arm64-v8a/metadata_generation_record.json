@@ -2,7 +2,7 @@
   {
     "level_": 0,
     "message_": "Start JSON generation. Platform version: 21 min SDK version: arm64-v8a",
-    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "file_": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
     "tag_": "debug|arm64-v8a",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,
@@ -11,12 +11,12 @@
       "fieldsDescending": {}
     },
     "memoizedSize": -1,
-    "memoizedHashCode": 265009323
+    "memoizedHashCode": -1145364001
   },
   {
     "level_": 0,
-    "message_": "JSON \u0027E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\.cxx\\Debug\\yz4b4u4z\\arm64-v8a\\android_gradle_build.json\u0027 was up-to-date",
-    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "message_": "JSON \u0027D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\FaceRecognitionMobileClient\\sdk\\.cxx\\Debug\\yz4b4u4z\\arm64-v8a\\android_gradle_build.json\u0027 was up-to-date",
+    "file_": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
     "tag_": "debug|arm64-v8a",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,
@@ -25,12 +25,12 @@
       "fieldsDescending": {}
     },
     "memoizedSize": -1,
-    "memoizedHashCode": 788535208
+    "memoizedHashCode": 558476827
   },
   {
     "level_": 0,
     "message_": "JSON generation completed without problems",
-    "file_": "E:\\Download\\FaceRecognition - Final\\FaceRecognition - Final\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
+    "file_": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\FaceRecognitionMobileClient\\sdk\\libcxx_helper\\CMakeLists.txt",
     "tag_": "debug|arm64-v8a",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,
@@ -39,6 +39,6 @@
       "fieldsDescending": {}
     },
     "memoizedSize": -1,
-    "memoizedHashCode": 1367715402
+    "memoizedHashCode": -42657922
   }
 ]

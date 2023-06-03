@@ -20,6 +20,7 @@ public class StreamVideoActivity extends AppCompatActivity  {
 
     private ImageView mImageView;
     private boolean mIsReceiving = false;
+    DatagramSocket udpSocket = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class StreamVideoActivity extends AppCompatActivity  {
             @Override
             public void run() {
 
-                DatagramSocket udpSocket = null;
+
                 try {
                     udpSocket = new DatagramSocket(CLIENT_PORT);
                 } catch (SocketException e) {
@@ -86,5 +87,13 @@ public class StreamVideoActivity extends AppCompatActivity  {
         });
         receiveVideoThread.start();
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (udpSocket != null) {
+            udpSocket.close();
+        }
     }
 }
