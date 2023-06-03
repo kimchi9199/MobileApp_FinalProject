@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/FaceRecognitionMobileClient.iml" filepath="$PROJECT_DIR$/.idea/FaceRecognitionMobileClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FaceRecognitionMobileClient.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FaceRecognitionMobileClient.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FaceRecognitionMobileClient.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FaceRecognitionMobileClient.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FaceRecognitionMobileClient.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FaceRecognitionMobileClient.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FaceRecognitionMobileClient.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FaceRecognitionMobileClient.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java/FaceRecognitionMobileClient.java.iml" filepath="$PROJECT_DIR$/.idea/modules/java/FaceRecognitionMobileClient.java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/openCVLibrary320/FaceRecognitionMobileClient.openCVLibrary320.iml" filepath="$PROJECT_DIR$/.idea/modules/openCVLibrary320/FaceRecognitionMobileClient.openCVLibrary320.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sdk/FaceRecognitionMobileClient.sdk.iml" filepath="$PROJECT_DIR$/.idea/modules/sdk/FaceRecognitionMobileClient.sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sdk/FaceRecognitionMobileClient.sdk.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/sdk/FaceRecognitionMobileClient.sdk.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sdk/FaceRecognitionMobileClient.sdk.main.iml" filepath="$PROJECT_DIR$/.idea/modules/sdk/FaceRecognitionMobileClient.sdk.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sdk/FaceRecognitionMobileClient.sdk.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/sdk/FaceRecognitionMobileClient.sdk.unitTest.iml" />
+    </modules>
+  </component>
+</project>

@@ -31,6 +31,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.util.Arrays;
 
 public class face_Recognition {
 
@@ -59,6 +60,7 @@ public class face_Recognition {
         //set GPU for the interpreter
         Interpreter.Options options = new Interpreter.Options();
         gpuDelegate = new GpuDelegate();
+        options.addDelegate(gpuDelegate);
 
         //before load add number of threads
         options.setNumThreads(4);
@@ -156,14 +158,22 @@ public class face_Recognition {
 
             //create convertBitmapToByteBuffer function
             ByteBuffer byteBuffer=convertBitmapToByteBuffer(scaleBitmap);
-//
+
             //create output
-            float[][] face_value=new float[1][1];
-            try {
-                interpreter.run(byteBuffer,face_value);
-            } catch (Exception e){
-                e.printStackTrace();
-            }
+            float[][] face_value = new float[1][128];
+            Thread RecognizeFace = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        interpreter.run(byteBuffer,face_value);
+                        Log.d("FACEVALUE", Arrays.toString(face_value));
+                    } catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            });
+            RecognizeFace.start();
+
 
             //To see face_val
             Log.d("face_recognition","Out: "+ Array.get(Array.get(face_value,0),0));

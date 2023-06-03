@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="lavender">#9263DD</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">FaceRecognitionMobileClient</string>
+    <string name="default_web_client_id" translatable="false">142972215875-214i0b0n5bfu0hhh1ek0426d66kim1kc.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://facerecognition-ba75a-default-rtdb.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">142972215875</string>
+    <string name="google_api_key" translatable="false">AIzaSyDiOPTuXlt1PZAIH3r6ZSA_2iqDuWQBJ_c</string>
+    <string name="google_app_id" translatable="false">1:142972215875:android:26725321edeb61b4a2eaf6</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDiOPTuXlt1PZAIH3r6ZSA_2iqDuWQBJ_c</string>
+    <string name="google_storage_bucket" translatable="false">facerecognition-ba75a.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="project_id" translatable="false">facerecognition-ba75a</string>
+    <style name="Theme.FaceRecognitionMobileClient" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/lavender</item>
+        <item name="colorPrimaryVariant">@color/lavender</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        
+    </style>
+    <style name="roundedImageViewRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>
