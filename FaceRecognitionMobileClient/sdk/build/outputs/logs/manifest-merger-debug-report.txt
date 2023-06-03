@@ -1,5 +1,6 @@
 -- Merging decision tree log ---
 manifest
+<<<<<<< Updated upstream
 ADDED from E:\Download\FaceRecognition - Final\FaceRecognition - Final\FaceRecognitionMobileClient\sdk\java\AndroidManifest.xml:2:1-4:12
 INJECTED from E:\Download\FaceRecognition - Final\FaceRecognition - Final\FaceRecognitionMobileClient\sdk\java\AndroidManifest.xml:2:1-4:12
 INJECTED from E:\Download\FaceRecognition - Final\FaceRecognition - Final\FaceRecognitionMobileClient\sdk\java\AndroidManifest.xml:2:1-4:12
@@ -23,3 +24,28 @@ INJECTED from E:\Download\FaceRecognition - Final\FaceRecognition - Final\FaceRe
 		INJECTED from E:\Download\FaceRecognition - Final\FaceRecognition - Final\FaceRecognitionMobileClient\sdk\java\AndroidManifest.xml
 		ADDED from E:\Download\FaceRecognition - Final\FaceRecognition - Final\FaceRecognitionMobileClient\sdk\java\AndroidManifest.xml
 		INJECTED from E:\Download\FaceRecognition - Final\FaceRecognition - Final\FaceRecognitionMobileClient\sdk\java\AndroidManifest.xml
+=======
+ADDED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml:2:1-4:12
+INJECTED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml:2:1-4:12
+INJECTED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml:2:1-4:12
+	package
+		ADDED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml:3:7-27
+		INJECTED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml
+		INJECTED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml:2:11-69
+uses-sdk
+INJECTED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml
+INJECTED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml
+INJECTED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml
+INJECTED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml
+		ADDED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml
+		INJECTED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml
+		ADDED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml
+		INJECTED from /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml
+>>>>>>> Stashed changes

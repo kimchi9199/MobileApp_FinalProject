@@ -1,0 +1,4 @@
+/Users/luongchautuan/Library/Android/sdk/cmake/3.18.1/bin/ninja \
+  -C \
+  /Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/.cxx/Debug/3i5x6r23/x86 \
+  opencv_jni_shared

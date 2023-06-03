@@ -1,2 +1,7 @@
+<<<<<<< Updated upstream
 ninja: Entering directory `D:\Study\Cirriculums\IoT\KC\FaceRecognition\FaceRecognition\FaceRecognitionMobileClient - Copy\sdk\.cxx\Debug\yz4b4u4z\x86_64'
 ninja: no work to do.
+=======
+ninja: Entering directory `D:\Study\Cirriculums\IoT\KC\FaceRecognition\FaceRecognition\FaceRecognitionMobileClient - Copy\sdk\.cxx\Debug\yz4b4u4z\x86_64'
+ninja: no work to do.
+>>>>>>> Stashed changes

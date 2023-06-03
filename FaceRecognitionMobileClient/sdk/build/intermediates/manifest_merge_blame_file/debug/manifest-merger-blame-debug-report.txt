@@ -2,7 +2,17 @@
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="org.opencv" >
 4
+<<<<<<< Updated upstream
 5    <uses-sdk android:minSdkVersion="21" />
 5-->E:\Download\FaceRecognition - Final\FaceRecognition - Final\FaceRecognitionMobileClient\sdk\java\AndroidManifest.xml
 6
 7</manifest>
+=======
+5    <uses-sdk
+6        android:minSdkVersion="21"
+6-->/Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml
+7        android:targetSdkVersion="33" />
+7-->/Users/luongchautuan/Documents/thuytrang/FaceRecognitionMobileClient/sdk/java/AndroidManifest.xml
+8
+9</manifest>
+>>>>>>> Stashed changes
