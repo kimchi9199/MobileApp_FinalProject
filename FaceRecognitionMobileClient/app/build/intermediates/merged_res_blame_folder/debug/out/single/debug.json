@@ -1,0 +1,266 @@
+[
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_bg_signup.png.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\bg_signup.png"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_background_login.png.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\background_login.png"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_baseline_calendar_month_24.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\baseline_calendar_month_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\layout_activity_editprofile.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\layout\\activity_editprofile.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_baseline_lock_reset_24.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\baseline_lock_reset_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_border.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\border.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_baseline_password_24.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\baseline_password_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_logout_icon.png.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\logout_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\menu_bottom_navigation_menu.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\menu\\bottom_navigation_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_baseline_lock_24.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\baseline_lock_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_profile_icon.png.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\profile_icon.png"
+    },
+    {
+        "merged": "com.example.facerecognitionmobileclient.app-merged_res-38:/layout_activity_detail.xml.flat",
+        "source": "com.example.facerecognitionmobileclient.app-main-40:/layout/activity_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\layout_activity_signup.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\layout\\activity_signup.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_test_1.jpeg.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\test_1.jpeg"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_menu_icon.png.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\menu_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_baseline_clear_24.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\baseline_clear_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\layout_activity_streamvideo.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\layout\\activity_streamvideo.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_message_icon.png.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\message_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\layout_activity_recycler_view.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\layout\\activity_recycler_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_background_profile.png.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\background_profile.png"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\layout_activity_logout.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\layout\\activity_logout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_white_background.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\white_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\layout_activity_serverip.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\layout\\activity_serverip.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_baseline_phone_24.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\baseline_phone_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\mipmap-anydpi-v33_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\mipmap-anydpi-v33\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_add_circle.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\add_circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_plus_icon.png.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\plus_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_gg_icon.png.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\gg_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_baseline_search_24.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\baseline_search_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\layout_fragment_all_devices_fragment.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\layout\\fragment_all_devices_fragment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_baseline_description_24.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\baseline_description_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_round.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_message.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\message.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_uploadimg.png.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\uploadimg.png"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_baseline_email_24.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\baseline_email_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\layout_activity_detail.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\layout\\activity_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_baseline_person_24.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\baseline_person_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_avatar_profile.png.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\avatar_profile.png"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_baseline_add_24.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\baseline_add_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_background_signup.png.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\background_signup.png"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_power_icon.png.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\power_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_home_icon.png.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\home_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\layout_activity_recycleitem.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\layout\\activity_recycleitem.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_whitebox.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\whitebox.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\layout_activity_card_view.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\layout\\activity_card_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\layout_activity_listshow.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\layout\\activity_listshow.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\layout_activity_forgotpassword.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\layout\\activity_forgotpassword.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-merged_res-38:\\drawable_avatar.xml.flat",
+        "source": "C:\\Users\\Luong Thi Thuy Trang\\.gradle\\daemon\\7.5\\com.example.facerecognitionmobileclient.app-main-40:\\drawable\\avatar.xml"
+    }
+]
