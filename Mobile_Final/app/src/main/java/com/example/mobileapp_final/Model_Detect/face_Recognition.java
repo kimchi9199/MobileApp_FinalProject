@@ -62,6 +62,8 @@ public class face_Recognition {
         gpuDelegate = new GpuDelegate();
         options.addDelegate(gpuDelegate);
 
+
+
         //before load add number of threads
         options.setNumThreads(4);
 
