@@ -9,5 +9,10 @@
         android:enabled="true"
         android:icon="@drawable/profile_icon"
         android:title="Profile"/>
+    <item
+        android:id="@+id/page_3"
+        android:enabled="true"
+        android:icon="@drawable/face"
+        android:title="Face Directory"/>
 
 </menu>

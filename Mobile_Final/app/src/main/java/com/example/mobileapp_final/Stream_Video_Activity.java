@@ -119,7 +119,5 @@ public class Stream_Video_Activity extends AppCompatActivity {
 
         });
         receiveVideoThread.start();
-
-
     }
 }

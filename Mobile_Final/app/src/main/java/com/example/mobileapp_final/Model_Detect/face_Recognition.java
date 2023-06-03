@@ -52,15 +52,23 @@ public class face_Recognition {
     private  int FLOAT_TYPE_SIZE = 4;
     private int  PIXEL_SIZE = 3;
 
+    private AssetManager assetManager;
+    private Context context;
+    private String modelFileName;
+
     //create
     public face_Recognition(AssetManager assetManager, Context context, String modelFileName, int input_size) throws IOException{
+
+        this.assetManager = assetManager;
+        this.context = context;
+        this.modelFileName = modelFileName;
 
         //get inputsize
         INPUT_SIZE = input_size;
         //set GPU for the interpreter
         Interpreter.Options options = new Interpreter.Options();
         gpuDelegate = new GpuDelegate();
-        options.addDelegate(gpuDelegate);
+//        options.addDelegate(gpuDelegate);
 
 
 
@@ -115,8 +123,6 @@ public class face_Recognition {
         {
             e.printStackTrace();
         }
-
-
     }
 
     //create a new function with input and output Mat
@@ -294,51 +300,6 @@ public class face_Recognition {
         }
 
         return null;
-
-//
-//        //define ByteBuffer
-//        ByteBuffer byteBuffer;
-//        //define input size
-//        int input_size=INPUT_SIZE;
-//        //multiply by 4 if input of model is float
-//        //multiply by 3 if input of model is RGB
-//        //if input is GRAY 3->1
-//        byteBuffer=ByteBuffer.allocateDirect(4*1*input_size*3);
-//        byteBuffer.order(ByteOrder.nativeOrder());
-//        int[] intValues=new int[input_size*input_size];
-//        scaleBitmap.getPixels(intValues,0,scaleBitmap.getWidth(),0,0,
-//                                scaleBitmap.getWidth(),scaleBitmap.getHeight());
-//        int pixels=0;
-//        //loop through each pixels
-////        for(int i=0;i<input_size;i++)
-////        {
-////            for (int j=0;j<input_size;j++)
-////            {
-////                //each pixels value
-////                final int val=intValues[pixels++];
-////                //put this pixel's values int bytebuffer
-////                byteBuffer.putFloat((((val>>16)&0xFF))/255.0f);
-////                byteBuffer.putFloat(((((val>>8))&0xFF))/255.0f);
-////                byteBuffer.putFloat(((val&0xFF))/255.0f);
-////                //these things is important
-////                //it is placing RGB to MSB to LSB
-////
-////            }
-////        }
-////
-////            int size = scaleBitmap.getRowBytes() * scaleBitmap.getHeight();
-////            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(size);
-////
-////            // Enable native byte order
-////            byteBuffer.order(ByteOrder.nativeOrder());
-////
-////            // Copy the bitmap's pixels into the ByteBuffer
-////            scaleBitmap.copyPixelsToBuffer(byteBuffer);
-////
-////            // Reset the ByteBuffer's position to the beginning
-////            byteBuffer.rewind();
-//
-//            return byteBuffer;
     }
 
 
@@ -357,5 +318,34 @@ public class face_Recognition {
         return  fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset,declaredLength);
     }
 
+    public Interpreter CreateTFModelInstance(AssetManager assetManager, String modelFileName) throws IOException{
+        ByteBuffer model = loadModel(assetManager, modelFileName);
+        Interpreter.Options options = new Interpreter.Options();
+        options.setNumThreads(4);
+        return new Interpreter(model, options);
+    }
 
+    public AssetManager getAssetManager() {
+        return assetManager;
+    }
+
+    public void setAssetManager(AssetManager assetManager) {
+        this.assetManager = assetManager;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    public String getModelFileName() {
+        return modelFileName;
+    }
+
+    public void setModelFileName(String modelFileName) {
+        this.modelFileName = modelFileName;
+    }
 }
