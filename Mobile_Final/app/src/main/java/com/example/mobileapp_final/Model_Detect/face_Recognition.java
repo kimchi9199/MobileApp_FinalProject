@@ -47,8 +47,10 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class face_Recognition {
@@ -75,7 +77,10 @@ public class face_Recognition {
     private String modelFileName;
     private int input_size;
     private static final int SCALING_FACTOR = 10;
+    private String identity = "unknown";
     FaceDetector faceDetector;
+    HashMap<String, ArrayList<float[][]>> StoredFaceVectorHashMap;
+    HashMap<String, Float> FaceCosineSimilarityScoreHashMap = new HashMap<>();
 
     //create
     public face_Recognition(AssetManager assetManager, Context context, String modelFileName, int input_size) throws IOException{
@@ -145,6 +150,28 @@ public class face_Recognition {
         {
             e.printStackTrace();
         }
+        Thread GetStoredFaceVector = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                // read faces in Face Vector JSON file
+                File path = context.getApplicationContext().getFilesDir();
+                File readFrom = new File(path, "FaceVector.ser");
+                String FaceVectorJSONString;
+                byte[] FaceVector = new byte[(int) readFrom.length()];
+                try {
+                    FileInputStream inputStream = new FileInputStream(readFrom);
+                    ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+                    StoredFaceVectorHashMap = (HashMap<String, ArrayList<float[][]>>) objectInputStream.readObject();
+                    Log.d("FACEVALUE", "OK");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        GetStoredFaceVector.start();
     }
 
     //create a new function with input and output Mat
@@ -196,23 +223,47 @@ public class face_Recognition {
                 public void run() {
                     try {
                         interpreter.run(byteBuffer,face_value);
-
-                        // read faces in Face Vector JSON file
-                        File path = context.getApplicationContext().getFilesDir();
-                        File readFrom = new File(path, "FaceVector.ser");
-                        String FaceVectorJSONString;
-                        byte[] FaceVector = new byte[(int) readFrom.length()];
                         try {
-                            FileInputStream inputStream = new FileInputStream(readFrom);
-                            ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-                            HashMap<String, ArrayList<float[][]>> FaceVectorHashMap = (HashMap<String, ArrayList<float[][]>>) objectInputStream.readObject();
-                            Log.d("FACEVALUE", Arrays.toString(face_value));
+                            Thread CompareFace = new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    for (Map.Entry<String, ArrayList<float[][]>> entry : StoredFaceVectorHashMap.entrySet()) {
+                                        String key = entry.getKey();
+                                        ArrayList<float[][]> FaceVectorsOfAPerson = entry.getValue();
+                                        int NumberOfStoredVector = 0;
+                                        float SumOfCosineSimilarity = 0;
+                                        float CosineSimilarity = 0;
+                                        // Iterate over the face vector array list of a person
+                                        for (float[][] vector : FaceVectorsOfAPerson) {
+                                            // Calculate Cosine Similarity between two face vectors
+                                            CosineSimilarity = CalculateCosineSimilarity(vector, face_value);
+                                            SumOfCosineSimilarity += CosineSimilarity;
+                                            NumberOfStoredVector += 1;
+                                        }
 
-                        } catch (IOException e) {
+                                        // Calculate Average Cosine Similarity
+                                        float AverageCosineSimilarity = SumOfCosineSimilarity / NumberOfStoredVector;
+                                        FaceCosineSimilarityScoreHashMap.put(key, AverageCosineSimilarity);
+                                        Log.d("OK", "COSINE ");
+                                    }
+//                                    try {
+//                                        // Get identity of the person by choosing the key that has the highest average Cosine Similarity score
+//                                        identity = FaceCosineSimilarityScoreHashMap
+//                                                .entrySet()
+//                                                .stream()
+//                                                .max(Map.Entry.comparingByValue())
+//                                                .map(Map.Entry::getKey)
+//                                                .orElse(null);
+//                                        Log.d("OK", "COSINE ");
+//                                    } catch (Exception e) {
+//                                        e.printStackTrace();
+//                                    }
+                                }
+                            });
+                            CompareFace.start();
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
-
-
                     } catch (Exception e){
                         e.printStackTrace();
                     }
@@ -220,27 +271,13 @@ public class face_Recognition {
             });
             RecognizeFace.start();
 
-//
-//            //To see face_val
-//            Log.d("face_recognition","Out: "+ Array.get(Array.get(face_value,0),0));
-////            //run
-////            //--//
-//            float read_face=(float) Array.get(Array.get(face_value,0),0);
-//            //Read face_value
-//            //Create a new function input as read_face and output as name
-//            String face_name=get_face_name(read_face);
-////
-//            //put text on frame
-//            //              in/output       text
-//            Imgproc.putText(mat_image,""+face_name,
-//                    new Point((int)faceArray[i].tl().x+10,(int)faceArray[i].tl().y+20),
-//                            1,1.5,new Scalar(255,255,255,150),2);
-//            //                  size                    color   R   G   B   alpha   thickness
+            //put text on frame
+            //              in/output       text
+            Imgproc.putText(mat_image," " + identity,
+                    new Point((int)faceArray[i].tl().x+10,(int)faceArray[i].tl().y+20),
+                            1,1.5,new Scalar(255,255,255,150),2);
+            //                  size                    color   R   G   B   alpha   thickness
         }
-
-
-//        Core.flip(mat_image.t(),mat_image,0);
-
         return mat_image;
     }
 
@@ -402,7 +439,7 @@ public class face_Recognition {
             InputStream inputStream=context.getResources().openRawResource(R.raw.haarcascade_frontalface_alt2);
 
             //create a new folder to save classifier
-            File cascadeDir=context.getDir("cascade",Context.MODE_PRIVATE);
+            File cascadeDir = context.getDir("cascade",Context.MODE_PRIVATE);
             //create a new cascade file in that folder
             File mCascadeFile = new File(cascadeDir, "haarcascade_frontalface_alt");
             //Define output stream to save haarcascade_frontalface_alt in mCascadefile
@@ -499,5 +536,53 @@ public class face_Recognition {
 
     public void setModelFileName(String modelFileName) {
         this.modelFileName = modelFileName;
+    }
+
+    private float[] FlattenArrayList (float[][] array) {
+        int rows = array.length;
+        int cols = array[0].length;
+        float[] flattenedArray  = new float[rows * cols];
+        int index = 0;
+        for (float[] row : array) {
+            for (float value : row) {
+                flattenedArray[index] = value;
+                index++;
+            }
+        }
+        return flattenedArray;
+    }
+
+    private float CalculateDotProduct (float[] vector1, float[] vector2) {
+        float dotProduct = 0;
+        for (int i = 0; i < vector1.length; i++) {
+            dotProduct += vector1[i] * vector2[i];
+        }
+        return dotProduct;
+    }
+
+    private float CalculateVectorLength(float[] vector) {
+        float sumOfSquares = 0;
+        for (float value : vector) {
+            sumOfSquares += value * value;
+        }
+        return (float) Math.sqrt(sumOfSquares);
+    }
+
+    private float CalculateCosineSimilarity(float[][] vector1, float[][] vector2) {
+        // Flatten vectors (convert 2D vector to 1D vector)
+        float[] flattenedVector1 = FlattenArrayList(vector1);
+        float[] flattenedVector2 = FlattenArrayList(vector2);
+
+        // Calculate length of each flattened vector
+        float lengthFlattenedVector1 = CalculateVectorLength(flattenedVector1);
+        float lengthFlattenedVector2 = CalculateVectorLength(flattenedVector2);
+
+        // Calculate dot product of two vectors
+        float dotProduct = CalculateDotProduct(flattenedVector2, flattenedVector1);
+
+        // Calculate Cosine Similarity between two face vectors
+        float CosineSimilarity = dotProduct / (lengthFlattenedVector1 * lengthFlattenedVector2);
+
+        return CosineSimilarity;
     }
 }

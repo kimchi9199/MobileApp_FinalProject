@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                             });
                             ReadAndVectorizeImagesInFolder(treeDocumentFile);
 
-                            String FaceVectorJSONString = gson.toJson(FaceVectorHashMap);
+//                            String FaceVectorJSONString = gson.toJson(FaceVectorHashMap);
 
                             try {
                                 // Store the Face Vector HashMap to a file
