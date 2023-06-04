@@ -27,13 +27,17 @@ import com.example.mobileapp_final.Model_Detect.face_Recognition;
 import com.example.mobileapp_final.fragment.all_devices_fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
 
 import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Mat;
 import org.tensorflow.lite.Interpreter;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectOutputStream;
 import java.lang.annotation.Documented;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -45,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     private static final int REQUEST_CODE_OPEN_DOCUMENT_TREE = 1;
     private HashMap<String, ArrayList<float[][]>> FaceVectorHashMap = new HashMap<>();
+    Gson gson;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         if (OpenCVLoader.initDebug()){
             Log.d("OPENCV", "OK");
         }
+
+        gson = new Gson();
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bt_navigation_menu);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -99,25 +106,49 @@ public class MainActivity extends AppCompatActivity {
                 // Retrieve the document tree for the selected directory
                 DocumentFile treeDocumentFile = DocumentFile.fromTreeUri(this, treeUri);
                 assert treeDocumentFile != null;
+                Thread ScanFace = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Recursive function to read images in each folder
+                        try {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(MainActivity.this, "We are scanning faces...! Please wait until the process finishes", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            ReadAndVectorizeImagesInFolder(treeDocumentFile);
 
-                // Recursive function to read images in each folder
-                try {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(MainActivity.this, "We are scanning faces...! Please wait", Toast.LENGTH_SHORT).show();
+                            String FaceVectorJSONString = gson.toJson(FaceVectorHashMap);
+
+                            try {
+                                // Store the Face Vector HashMap to a file
+                                File path = getApplicationContext().getFilesDir();
+                                FileOutputStream writer = new FileOutputStream(new File(path, "FaceVector.json"));
+//                                ObjectOutputStream objectOutputStream = new ObjectOutputStream(writer);
+//                                objectOutputStream.writeObject(FaceVectorHashMap);
+
+                                writer.write(FaceVectorJSONString.getBytes());
+                                writer.close();
+                                Log.d("CONVERT", "OK");
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(MainActivity.this, "Scanning faces done", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
                         }
-                    });
-                    ReadAndVectorizeImagesInFolder(treeDocumentFile);
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(MainActivity.this, "Scanning faces done", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                    }
+                });
+                ScanFace.start();
+
 
             }
         }
@@ -162,7 +193,6 @@ public class MainActivity extends AppCompatActivity {
                                 } else {
                                     FaceVectorHashMap.put(PersonName, new ArrayList<>(Collections.singleton(face_vector_value)));
                                 }
-                                Log.d("OK", "OK");
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }

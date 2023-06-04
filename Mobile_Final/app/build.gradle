@@ -54,5 +54,8 @@ dependencies {
 
     implementation 'com.google.mlkit:face-detection:16.1.5'
 
+    // Add GSON
+    implementation 'com.google.code.gson:gson:2.10.1'
+
 
 }
