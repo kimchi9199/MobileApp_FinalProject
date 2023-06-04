@@ -85,6 +85,7 @@ public class face_Recognition {
     HashMap<String, ArrayList<float[][]>> StoredFaceVectorHashMap;
     HashMap<String, Float> FaceCosineSimilarityScoreHashMap = new HashMap<>();
     boolean isFaceVectorFileExist;
+    final float THRESHOLD = 0.95f;
 
     //create
     public face_Recognition(AssetManager assetManager, Context context, String modelFileName, int input_size) throws IOException{
@@ -267,13 +268,22 @@ public class face_Recognition {
                                             Log.d("OK", "COSINE ");
                                         }
                                         try {
-                                            // Get identity of the person by choosing the key that has the highest average Cosine Similarity score
-                                            identity = FaceCosineSimilarityScoreHashMap
+                                            float max = Objects.requireNonNull(FaceCosineSimilarityScoreHashMap
                                                     .entrySet()
                                                     .stream()
                                                     .max(Map.Entry.comparingByValue())
-                                                    .map(Map.Entry::getKey)
-                                                    .orElse(null);
+                                                    .orElse(null)).getValue();
+                                            if (max >= THRESHOLD) {
+                                                // Get identity of the person by choosing the key that has the highest average Cosine Similarity score
+                                                identity = FaceCosineSimilarityScoreHashMap
+                                                        .entrySet()
+                                                        .stream()
+                                                        .max(Map.Entry.comparingByValue())
+                                                        .map(Map.Entry::getKey)
+                                                        .orElse(null);
+                                            } else {
+                                                identity = "unknown";
+                                            }
                                             Log.d("OK", "COSINE ");
                                         } catch (Exception e) {
                                             e.printStackTrace();
@@ -302,74 +312,6 @@ public class face_Recognition {
         return mat_image;
     }
 
-    private String get_face_name(float read_face) {
-        String val="";
-        if (read_face>=0 & read_face<0.5)
-        {
-            val="Courteney Cox";
-        }
-        else if (read_face>=0.5 & read_face<1.5)
-        {
-            val="Aenol Schwarenegger";
-        }
-        else if (read_face>=1.5 & read_face<2.5)
-        {
-            val="Đàm Vĩnh Hưng";
-        }
-        else if (read_face>=2.5 & read_face<3.5)
-        {
-            val="Akira Phan";
-        }
-        else if (read_face>=4.5 & read_face<5.5)
-        {
-            val="Elly Trần";
-        }
-        else if (read_face>=6.5 & read_face<7.5)
-        {
-            val="Đỗ Nhật Trường";
-        }
-        else if (read_face>=7.5 & read_face<8.5)
-        {
-            val="Đông Nhi";
-        }
-        else if (read_face>=8.5 & read_face<9.5)
-        {
-            val="Bích Phương";
-        }
-        else if (read_face>=9.5 & read_face<10.5)
-        {
-            val="Quỳnh Kool";
-        }
-        else if (read_face>=10.5 & read_face<11.5)
-        {
-            val="Phạm Hương";
-        }
-        else if (read_face>=11.5 & read_face<12.5)
-        {
-            val="Hồ Ngọc Hà";
-        }
-        else if (read_face>=12.5 & read_face<13.5)
-        {
-            val="Johnny Trí Nguyễn";
-        }
-        else if (read_face>=13.5 & read_face<14.5)
-        {
-            val="Angela Phương Trinh";
-        }
-        else if (read_face>=14.5 & read_face<15.5)
-        {
-            val="Linh Miu";
-        }
-        else if (read_face>=15.5 & read_face<16.5)
-        {
-            val="Chi Dân";
-        }
-        else {
-            val = "Stranger";
-        }
-        
-        return val;
-    }
 
     private ByteBuffer convertBitmapToByteBuffer(Bitmap scaleBitmap) {
 
