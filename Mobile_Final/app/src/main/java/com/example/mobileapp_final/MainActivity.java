@@ -36,15 +36,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.annotation.Documented;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     CardView cardView;
     BottomNavigationView bottomNavigationView;
     private static final int REQUEST_CODE_OPEN_DOCUMENT_TREE = 1;
-    private ArrayList<Pair<String, float[][]>> FaceVectorData = new ArrayList<>();
-
-
+    private HashMap<String, ArrayList<float[][]>> FaceVectorHashMap = new HashMap<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -156,7 +156,12 @@ public class MainActivity extends AppCompatActivity {
                         if (face_vector_value != null) {
                             try {
                                 String PersonName = documentFile.getName();
-                                FaceVectorData.add(new Pair<>(PersonName, face_vector_value));
+                                if (FaceVectorHashMap.containsKey(PersonName)) {
+                                    ArrayList<float[][]> existingFaceVector = FaceVectorHashMap.get(PersonName);
+                                    existingFaceVector.addAll(Collections.singleton(face_vector_value));
+                                } else {
+                                    FaceVectorHashMap.put(PersonName, new ArrayList<>(Collections.singleton(face_vector_value)));
+                                }
                                 Log.d("OK", "OK");
                             } catch (Exception e) {
                                 e.printStackTrace();
