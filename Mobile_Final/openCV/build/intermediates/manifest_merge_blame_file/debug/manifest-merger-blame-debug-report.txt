@@ -3,6 +3,6 @@
 3    package="org.opencv" >
 4
 5    <uses-sdk android:minSdkVersion="24" />
-5-->D:\Study\Cirriculums\Mobile-Developement\KC\FinalProject\MobileApp_FinalProject\Mobile_Final\OpenCV\java\AndroidManifest.xml
+5-->/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/java/AndroidManifest.xml
 6
 7</manifest>

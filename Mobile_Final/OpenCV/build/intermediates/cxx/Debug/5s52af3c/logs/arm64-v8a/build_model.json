@@ -6,9 +6,9 @@
     "deprecated": false,
     "default": true
   },
-  "cxxBuildFolder": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\.cxx\\Debug\\5s52af3c\\arm64-v8a",
-  "soFolder": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\build\\intermediates\\cxx\\Debug\\5s52af3c\\obj\\arm64-v8a",
-  "soRepublishFolder": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a",
+  "cxxBuildFolder": "/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/.cxx/Debug/5s52af3c/arm64-v8a",
+  "soFolder": "/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/build/intermediates/cxx/Debug/5s52af3c/obj/arm64-v8a",
+  "soRepublishFolder": "/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/build/intermediates/cmake/debug/obj/arm64-v8a",
   "abiPlatformVersion": 24,
   "cmake": {
     "effectiveConfiguration": {
@@ -33,15 +33,15 @@
     "implicitBuildTargetSet": [],
     "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
     "module": {
-      "cxxFolder": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\.cxx",
-      "intermediatesBaseFolder": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\build\\intermediates",
-      "intermediatesFolder": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\build\\intermediates\\cxx",
+      "cxxFolder": "/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/.cxx",
+      "intermediatesBaseFolder": "/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/build/intermediates",
+      "intermediatesFolder": "/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/build/intermediates/cxx",
       "gradleModulePathName": ":OpenCV",
-      "moduleRootFolder": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV",
-      "moduleBuildFile": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\build.gradle",
-      "makeFile": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+      "moduleRootFolder": "/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV",
+      "moduleBuildFile": "/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/build.gradle",
+      "makeFile": "/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
       "buildSystem": "CMAKE",
-      "ndkFolder": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620",
+      "ndkFolder": "/Users/sarah/Library/Android/sdk/ndk/23.1.7779620",
       "ndkVersion": "23.1.7779620",
       "ndkSupportedAbiList": [
         "ARMEABI_V7A",
@@ -105,33 +105,33 @@
           "default": true
         }
       ],
-      "cmakeToolchainFile": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
+      "cmakeToolchainFile": "/Users/sarah/Library/Android/sdk/ndk/23.1.7779620/build/cmake/android.toolchain.cmake",
       "cmake": {
         "isValidCmakeAvailable": true,
-        "cmakeExe": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\cmake.exe",
+        "cmakeExe": "/Users/sarah/Library/Android/sdk/cmake/3.22.1/bin/cmake",
         "minimumCmakeVersion": "3.22.1"
       },
       "stlSharedObjectMap": {
         "LIBCXX_SHARED": {
-          "ARMEABI_V7A": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
-          "ARM64_V8A": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
-          "X86": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
-          "X86_64": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
+          "ARMEABI_V7A": "/Users/sarah/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/arm-linux-androideabi/libc++_shared.so",
+          "ARM64_V8A": "/Users/sarah/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so",
+          "X86": "/Users/sarah/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/i686-linux-android/libc++_shared.so",
+          "X86_64": "/Users/sarah/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/x86_64-linux-android/libc++_shared.so"
         },
         "LIBCXX_STATIC": {},
         "NONE": {},
         "SYSTEM": {}
       },
       "project": {
-        "rootBuildGradleFolder": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final",
-        "sdkFolder": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk",
+        "rootBuildGradleFolder": "/Users/sarah/MobileApp_FinalProject/Mobile_Final",
+        "sdkFolder": "/Users/sarah/Library/Android/sdk",
         "isBuildOnlyTargetAbiEnabled": true,
         "ideBuildTargetAbi": "arm64-v8a,armeabi-v7a,armeabi",
         "isCmakeBuildCohabitationEnabled": false,
         "isPrefabEnabled": false
       },
       "outputOptions": [],
-      "ninjaExe": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe"
+      "ninjaExe": "/Users/sarah/Library/Android/sdk/cmake/3.22.1/bin/ninja"
     },
     "prefabClassPaths": [],
     "prefabPackages": [],
@@ -142,29 +142,29 @@
   "buildSettings": {
     "environmentVariables": []
   },
-  "prefabFolder": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\.cxx\\Debug\\5s52af3c\\prefab\\arm64-v8a",
+  "prefabFolder": "/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/.cxx/Debug/5s52af3c/prefab/arm64-v8a",
   "isActiveAbi": true,
   "fullConfigurationHash": "5s52af3c734h2x5t6sy1r162q625rt5u6ie1mb2a441k284d4l2b4i506j",
   "fullConfigurationHashKey": "# Values used to calculate the hash in this folder name.\n# Should not depend on the absolute path of the project itself.\n#   - AGP: 7.4.2.\n#   - $NDK is the path to NDK 23.1.7779620.\n#   - $PROJECT is the path to the parent folder of the root Gradle build file.\n#   - $ABI is the ABI to be built with. The specific value doesn\u0027t contribute to the value of the hash.\n#   - $HASH is the hash value computed from this text.\n#   - $CMAKE is the path to CMake 3.22.1.\n#   - $NINJA is the path to Ninja.\n-H$PROJECT/OpenCV/libcxx_helper\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_SYSTEM_VERSION\u003d24\n-DANDROID_PLATFORM\u003dandroid-24\n-DANDROID_ABI\u003d$ABI\n-DCMAKE_ANDROID_ARCH_ABI\u003d$ABI\n-DANDROID_NDK\u003d$NDK\n-DCMAKE_ANDROID_NDK\u003d$NDK\n-DCMAKE_TOOLCHAIN_FILE\u003d$NDK/build/cmake/android.toolchain.cmake\n-DCMAKE_MAKE_PROGRAM\u003d$NINJA\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d$PROJECT/OpenCV/build/intermediates/cxx/Debug/$HASH/obj/$ABI\n-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d$PROJECT/OpenCV/build/intermediates/cxx/Debug/$HASH/obj/$ABI\n-DCMAKE_BUILD_TYPE\u003dDebug\n-B$PROJECT/OpenCV/.cxx/Debug/$HASH/$ABI\n-GNinja\n-DANDROID_STL\u003dc++_shared",
   "configurationArguments": [
-    "-HD:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\libcxx_helper",
+    "-H/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper",
     "-DCMAKE_SYSTEM_NAME\u003dAndroid",
     "-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON",
     "-DCMAKE_SYSTEM_VERSION\u003d24",
     "-DANDROID_PLATFORM\u003dandroid-24",
     "-DANDROID_ABI\u003darm64-v8a",
     "-DCMAKE_ANDROID_ARCH_ABI\u003darm64-v8a",
-    "-DANDROID_NDK\u003dC:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620",
-    "-DCMAKE_ANDROID_NDK\u003dC:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620",
-    "-DCMAKE_TOOLCHAIN_FILE\u003dC:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
-    "-DCMAKE_MAKE_PROGRAM\u003dC:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
-    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dD:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\build\\intermediates\\cxx\\Debug\\5s52af3c\\obj\\arm64-v8a",
-    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dD:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\build\\intermediates\\cxx\\Debug\\5s52af3c\\obj\\arm64-v8a",
+    "-DANDROID_NDK\u003d/Users/sarah/Library/Android/sdk/ndk/23.1.7779620",
+    "-DCMAKE_ANDROID_NDK\u003d/Users/sarah/Library/Android/sdk/ndk/23.1.7779620",
+    "-DCMAKE_TOOLCHAIN_FILE\u003d/Users/sarah/Library/Android/sdk/ndk/23.1.7779620/build/cmake/android.toolchain.cmake",
+    "-DCMAKE_MAKE_PROGRAM\u003d/Users/sarah/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/build/intermediates/cxx/Debug/5s52af3c/obj/arm64-v8a",
+    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/build/intermediates/cxx/Debug/5s52af3c/obj/arm64-v8a",
     "-DCMAKE_BUILD_TYPE\u003dDebug",
-    "-BD:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\.cxx\\Debug\\5s52af3c\\arm64-v8a",
+    "-B/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/.cxx/Debug/5s52af3c/arm64-v8a",
     "-GNinja",
     "-DANDROID_STL\u003dc++_shared"
   ],
-  "stlLibraryFile": "C:\\Users\\Thai\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
-  "intermediatesParentFolder": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\build\\intermediates\\cxx\\Debug\\5s52af3c"
+  "stlLibraryFile": "/Users/sarah/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so",
+  "intermediatesParentFolder": "/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/build/intermediates/cxx/Debug/5s52af3c"
 }
