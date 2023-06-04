@@ -16,11 +16,13 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 
+import com.example.mobileapp_final.Model.FaceVector;
 import com.example.mobileapp_final.Model_Detect.face_Recognition;
 import com.example.mobileapp_final.fragment.all_devices_fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
@@ -33,11 +35,14 @@ import org.tensorflow.lite.Interpreter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.annotation.Documented;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     CardView cardView;
     BottomNavigationView bottomNavigationView;
     private static final int REQUEST_CODE_OPEN_DOCUMENT_TREE = 1;
+    private ArrayList<Pair<String, float[][]>> FaceVectorData = new ArrayList<>();
 
 
     @Override
@@ -97,7 +102,19 @@ public class MainActivity extends AppCompatActivity {
 
                 // Recursive function to read images in each folder
                 try {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(MainActivity.this, "We are scanning faces...! Please wait", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                     ReadAndVectorizeImagesInFolder(treeDocumentFile);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(MainActivity.this, "Scanning faces done", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -109,13 +126,49 @@ public class MainActivity extends AppCompatActivity {
     private void ReadAndVectorizeImagesInFolder (DocumentFile documentFile) throws IOException {
         if (documentFile.isDirectory()) {
 
+            FaceVector faceVector = null;
+
+            ContentResolver contentResolver = getContentResolver();
+
+            // Initialize face_Recognition
+            face_Recognition faceRecognition = new face_Recognition(
+                    MainActivity.this.getAssets(),
+                    MainActivity.this,
+                    "facenet.tflite",
+                    160
+            );
+
             // Read images in the current directory
             DocumentFile[] files = documentFile.listFiles();
 
             for (DocumentFile file: files) {
                 if (file.isFile() && isImageFile(file.getName())) {
                     Uri imageUri = file.getUri();
-                    GetFaceVector(imageUri);
+
+                    // Create a Bitmap
+                    Bitmap FaceBitmap = null;
+                    try {
+                        InputStream inputStream = contentResolver.openInputStream(imageUri);
+                        FaceBitmap = BitmapFactory.decodeStream(inputStream);
+
+                        float[][] face_vector_value = new float[1][128];
+                        face_vector_value = faceRecognition.VectorizeFace(FaceBitmap);
+                        if (face_vector_value != null) {
+                            try {
+                                String PersonName = documentFile.getName();
+                                FaceVectorData.add(new Pair<>(PersonName, face_vector_value));
+                                Log.d("OK", "OK");
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } finally {
+                        if (FaceBitmap != null) {
+                            FaceBitmap.recycle();
+                        }
+                    }
                 }
             }
 
@@ -134,39 +187,5 @@ public class MainActivity extends AppCompatActivity {
         String extension = MimeTypeMap.getFileExtensionFromUrl(ImageName);
         String mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
         return mimeType != null && mimeType.startsWith("image/");
-    }
-
-    private void GetFaceVector(Uri ImageUri) throws IOException {
-
-        ContentResolver contentResolver = getContentResolver();
-
-        // Initialize a FaceNet model
-        face_Recognition faceRecognition = new face_Recognition(
-                MainActivity.this.getAssets(),
-                MainActivity.this,
-                "facenet.tflite",
-                160
-        );
-
-        // Load the FaceNet model
-        Interpreter interpreter;
-        interpreter = faceRecognition.CreateTFModelInstance(
-                faceRecognition.getAssetManager(),
-                faceRecognition.getModelFileName());
-
-
-
-        // Create a Bitmap
-        Bitmap FaceBitmap = null;
-        try {
-            InputStream inputStream = contentResolver.openInputStream(ImageUri);
-            FaceBitmap = BitmapFactory.decodeStream(inputStream);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (FaceBitmap != null) {
-                FaceBitmap.recycle();
-            }
-        }
     }
 }
