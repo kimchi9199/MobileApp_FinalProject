@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -52,6 +54,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.logging.LogRecord;
 
 public class face_Recognition {
 
@@ -81,6 +84,7 @@ public class face_Recognition {
     FaceDetector faceDetector;
     HashMap<String, ArrayList<float[][]>> StoredFaceVectorHashMap;
     HashMap<String, Float> FaceCosineSimilarityScoreHashMap = new HashMap<>();
+    boolean isFaceVectorFileExist;
 
     //create
     public face_Recognition(AssetManager assetManager, Context context, String modelFileName, int input_size) throws IOException{
@@ -153,22 +157,37 @@ public class face_Recognition {
         Thread GetStoredFaceVector = new Thread(new Runnable() {
             @Override
             public void run() {
-
-                // read faces in Face Vector JSON file
                 File path = context.getApplicationContext().getFilesDir();
-                File readFrom = new File(path, "FaceVector.ser");
-                String FaceVectorJSONString;
-                byte[] FaceVector = new byte[(int) readFrom.length()];
-                try {
-                    FileInputStream inputStream = new FileInputStream(readFrom);
-                    ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-                    StoredFaceVectorHashMap = (HashMap<String, ArrayList<float[][]>>) objectInputStream.readObject();
-                    Log.d("FACEVALUE", "OK");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    throw new RuntimeException(e);
+
+                // Check if FaceVector.ser exist
+                File FaceVectorFile = new File(path + "/FaceVector.ser");
+                isFaceVectorFileExist = FaceVectorFile.exists();
+                if (!isFaceVectorFileExist) {
+                    Log.d("Test", "OK");
+                    boolean handler = new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(context, "Looks like you haven't added any sample faces yet. " +
+                                    "Please add sample face by choosing Face Directory button", Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                } else {
+                    // read faces in Face Vector JSON file
+                    File readFrom = new File(path, "FaceVector.ser");
+                    String FaceVectorJSONString;
+                    byte[] FaceVector = new byte[(int) readFrom.length()];
+                    try {
+                        FileInputStream inputStream = new FileInputStream(readFrom);
+                        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+                        StoredFaceVectorHashMap = (HashMap<String, ArrayList<float[][]>>) objectInputStream.readObject();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (ClassNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
+
             }
         });
         GetStoredFaceVector.start();
@@ -218,58 +237,60 @@ public class face_Recognition {
 
             //create output
             float[][] face_value = new float[1][128];
-            Thread RecognizeFace = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        interpreter.run(byteBuffer,face_value);
+            if (isFaceVectorFileExist) {
+                Thread RecognizeFace = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
                         try {
-                            Thread CompareFace = new Thread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    for (Map.Entry<String, ArrayList<float[][]>> entry : StoredFaceVectorHashMap.entrySet()) {
-                                        String key = entry.getKey();
-                                        ArrayList<float[][]> FaceVectorsOfAPerson = entry.getValue();
-                                        int NumberOfStoredVector = 0;
-                                        float SumOfCosineSimilarity = 0;
-                                        float CosineSimilarity = 0;
-                                        // Iterate over the face vector array list of a person
-                                        for (float[][] vector : FaceVectorsOfAPerson) {
-                                            // Calculate Cosine Similarity between two face vectors
-                                            CosineSimilarity = CalculateCosineSimilarity(vector, face_value);
-                                            SumOfCosineSimilarity += CosineSimilarity;
-                                            NumberOfStoredVector += 1;
-                                        }
+                            interpreter.run(byteBuffer,face_value);
+                            try {
+                                Thread CompareFace = new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        for (Map.Entry<String, ArrayList<float[][]>> entry : StoredFaceVectorHashMap.entrySet()) {
+                                            String key = entry.getKey();
+                                            ArrayList<float[][]> FaceVectorsOfAPerson = entry.getValue();
+                                            int NumberOfStoredVector = 0;
+                                            float SumOfCosineSimilarity = 0;
+                                            float CosineSimilarity = 0;
+                                            // Iterate over the face vector array list of a person
+                                            for (float[][] vector : FaceVectorsOfAPerson) {
+                                                // Calculate Cosine Similarity between two face vectors
+                                                CosineSimilarity = CalculateCosineSimilarity(vector, face_value);
+                                                SumOfCosineSimilarity += CosineSimilarity;
+                                                NumberOfStoredVector += 1;
+                                            }
 
-                                        // Calculate Average Cosine Similarity
-                                        float AverageCosineSimilarity = SumOfCosineSimilarity / NumberOfStoredVector;
-                                        FaceCosineSimilarityScoreHashMap.put(key, AverageCosineSimilarity);
-                                        Log.d("OK", "COSINE ");
+                                            // Calculate Average Cosine Similarity
+                                            float AverageCosineSimilarity = SumOfCosineSimilarity / NumberOfStoredVector;
+                                            FaceCosineSimilarityScoreHashMap.put(key, AverageCosineSimilarity);
+                                            Log.d("OK", "COSINE ");
+                                        }
+                                        try {
+                                            // Get identity of the person by choosing the key that has the highest average Cosine Similarity score
+                                            identity = FaceCosineSimilarityScoreHashMap
+                                                    .entrySet()
+                                                    .stream()
+                                                    .max(Map.Entry.comparingByValue())
+                                                    .map(Map.Entry::getKey)
+                                                    .orElse(null);
+                                            Log.d("OK", "COSINE ");
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
                                     }
-                                    try {
-                                        // Get identity of the person by choosing the key that has the highest average Cosine Similarity score
-                                        identity = FaceCosineSimilarityScoreHashMap
-                                                .entrySet()
-                                                .stream()
-                                                .max(Map.Entry.comparingByValue())
-                                                .map(Map.Entry::getKey)
-                                                .orElse(null);
-                                        Log.d("OK", "COSINE ");
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            });
-                            CompareFace.start();
-                        } catch (Exception e) {
+                                });
+                                CompareFace.start();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } catch (Exception e){
                             e.printStackTrace();
                         }
-                    } catch (Exception e){
-                        e.printStackTrace();
                     }
-                }
-            });
-            RecognizeFace.start();
+                });
+                RecognizeFace.start();
+            }
 
             //put text on frame
             //              in/output       text

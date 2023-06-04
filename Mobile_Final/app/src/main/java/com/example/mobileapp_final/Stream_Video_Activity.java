@@ -28,6 +28,7 @@ public class Stream_Video_Activity extends AppCompatActivity {
     private Mat mRgba;
     private Mat mGray;
     private face_Recognition faceRecognition;
+    DatagramSocket udpSocket = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +64,7 @@ public class Stream_Video_Activity extends AppCompatActivity {
         Thread receiveVideoThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                DatagramSocket udpSocket = null;
+
                  try {
 
                      udpSocket = new DatagramSocket(CLIENT_PORT);
@@ -119,5 +120,17 @@ public class Stream_Video_Activity extends AppCompatActivity {
 
         });
         receiveVideoThread.start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        udpSocket.close();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        udpSocket.close();
     }
 }
