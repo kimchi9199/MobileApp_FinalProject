@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                             try {
                                 // Store the Face Vector HashMap to a file
                                 File path = getApplicationContext().getFilesDir();
-                                FileOutputStream writer = new FileOutputStream(new File(path, "FaceVector.json"));
+                                FileOutputStream writer = new FileOutputStream(new File(path, "FaceVector.ser"));
                                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(writer);
                                 objectOutputStream.writeObject(FaceVectorHashMap);
 //                                writer.write(FaceVectorJSONString.getBytes());

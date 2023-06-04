@@ -77,7 +77,7 @@ public class face_Recognition {
     private String modelFileName;
     private int input_size;
     private static final int SCALING_FACTOR = 10;
-    private String identity = "unknown";
+    private String identity;
     FaceDetector faceDetector;
     HashMap<String, ArrayList<float[][]>> StoredFaceVectorHashMap;
     HashMap<String, Float> FaceCosineSimilarityScoreHashMap = new HashMap<>();
@@ -246,18 +246,18 @@ public class face_Recognition {
                                         FaceCosineSimilarityScoreHashMap.put(key, AverageCosineSimilarity);
                                         Log.d("OK", "COSINE ");
                                     }
-//                                    try {
-//                                        // Get identity of the person by choosing the key that has the highest average Cosine Similarity score
-//                                        identity = FaceCosineSimilarityScoreHashMap
-//                                                .entrySet()
-//                                                .stream()
-//                                                .max(Map.Entry.comparingByValue())
-//                                                .map(Map.Entry::getKey)
-//                                                .orElse(null);
-//                                        Log.d("OK", "COSINE ");
-//                                    } catch (Exception e) {
-//                                        e.printStackTrace();
-//                                    }
+                                    try {
+                                        // Get identity of the person by choosing the key that has the highest average Cosine Similarity score
+                                        identity = FaceCosineSimilarityScoreHashMap
+                                                .entrySet()
+                                                .stream()
+                                                .max(Map.Entry.comparingByValue())
+                                                .map(Map.Entry::getKey)
+                                                .orElse(null);
+                                        Log.d("OK", "COSINE ");
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
                                 }
                             });
                             CompareFace.start();
