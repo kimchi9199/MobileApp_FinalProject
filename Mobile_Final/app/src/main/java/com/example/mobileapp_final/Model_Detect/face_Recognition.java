@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.mobileapp_final.MainActivity;
 import com.example.mobileapp_final.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -38,12 +39,15 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
 import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -192,7 +196,23 @@ public class face_Recognition {
                 public void run() {
                     try {
                         interpreter.run(byteBuffer,face_value);
-                        Log.d("FACEVALUE", Arrays.toString(face_value));
+
+                        // read faces in Face Vector JSON file
+                        File path = context.getApplicationContext().getFilesDir();
+                        File readFrom = new File(path, "FaceVector.ser");
+                        String FaceVectorJSONString;
+                        byte[] FaceVector = new byte[(int) readFrom.length()];
+                        try {
+                            FileInputStream inputStream = new FileInputStream(readFrom);
+                            ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+                            HashMap<String, ArrayList<float[][]>> FaceVectorHashMap = (HashMap<String, ArrayList<float[][]>>) objectInputStream.readObject();
+                            Log.d("FACEVALUE", Arrays.toString(face_value));
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+
                     } catch (Exception e){
                         e.printStackTrace();
                     }
@@ -200,23 +220,22 @@ public class face_Recognition {
             });
             RecognizeFace.start();
 
-
-            //To see face_val
-            Log.d("face_recognition","Out: "+ Array.get(Array.get(face_value,0),0));
-//            //run
-//            //--//
-            float read_face=(float) Array.get(Array.get(face_value,0),0);
-            //Read face_value
-            //Create a new function input as read_face and output as name
-            String face_name=get_face_name(read_face);
 //
-            Log.d("ABC",face_name);
-            //put text on frame
-            //              in/output       text
-            Imgproc.putText(mat_image,""+face_name,
-                    new Point((int)faceArray[i].tl().x+10,(int)faceArray[i].tl().y+20),
-                            1,1.5,new Scalar(255,255,255,150),2);
-            //                  size                    color   R   G   B   alpha   thickness
+//            //To see face_val
+//            Log.d("face_recognition","Out: "+ Array.get(Array.get(face_value,0),0));
+////            //run
+////            //--//
+//            float read_face=(float) Array.get(Array.get(face_value,0),0);
+//            //Read face_value
+//            //Create a new function input as read_face and output as name
+//            String face_name=get_face_name(read_face);
+////
+//            //put text on frame
+//            //              in/output       text
+//            Imgproc.putText(mat_image,""+face_name,
+//                    new Point((int)faceArray[i].tl().x+10,(int)faceArray[i].tl().y+20),
+//                            1,1.5,new Scalar(255,255,255,150),2);
+//            //                  size                    color   R   G   B   alpha   thickness
         }
 
 

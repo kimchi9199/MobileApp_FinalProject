@@ -125,11 +125,10 @@ public class MainActivity extends AppCompatActivity {
                                 // Store the Face Vector HashMap to a file
                                 File path = getApplicationContext().getFilesDir();
                                 FileOutputStream writer = new FileOutputStream(new File(path, "FaceVector.json"));
-//                                ObjectOutputStream objectOutputStream = new ObjectOutputStream(writer);
-//                                objectOutputStream.writeObject(FaceVectorHashMap);
-
-                                writer.write(FaceVectorJSONString.getBytes());
-                                writer.close();
+                                ObjectOutputStream objectOutputStream = new ObjectOutputStream(writer);
+                                objectOutputStream.writeObject(FaceVectorHashMap);
+//                                writer.write(FaceVectorJSONString.getBytes());
+//                                writer.close();
                                 Log.d("CONVERT", "OK");
                             } catch (IOException e) {
                                 e.printStackTrace();
