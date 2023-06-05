@@ -85,7 +85,7 @@ public class face_Recognition {
     HashMap<String, ArrayList<float[][]>> StoredFaceVectorHashMap;
     HashMap<String, Float> FaceCosineSimilarityScoreHashMap = new HashMap<>();
     boolean isFaceVectorFileExist;
-    final float THRESHOLD = 0.95f;
+    final float THRESHOLD = 0.87f;
 
     //create
     public face_Recognition(AssetManager assetManager, Context context, String modelFileName, int input_size) throws IOException{
