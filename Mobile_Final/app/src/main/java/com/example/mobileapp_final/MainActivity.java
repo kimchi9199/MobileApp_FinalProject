@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     CardView cardView;
     BottomNavigationView bottomNavigationView;
     MaterialButton btnmenu;
+    MaterialButton btninstruction;
     DatabaseReference databaseReference;
     GoogleSignInClient gClient;
     GoogleSignInOptions gOptions;
@@ -76,6 +77,10 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bt_navigation_menu);
         btnmenu = findViewById(R.id.Btn_Profile);
+
+        btninstruction = findViewById(R.id.Btn_Instruction);
+
+
 
 
         // Initialize the Firebase Realtime Database reference
@@ -108,6 +113,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ListShowActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btninstruction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SetupInstruction.class);
                 startActivity(intent);
             }
         });

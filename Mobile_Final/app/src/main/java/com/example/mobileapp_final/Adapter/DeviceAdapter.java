@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,6 +63,7 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceView
 //        bind data to view holder
         holder.tvName.setText(name);
         holder.tvDescription.setText(devices.getDescription());
+        holder.imageView.setImageDrawable(devices.getImageURL());
 
 
     }
@@ -74,12 +76,14 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceView
     class DeviceViewHolder extends RecyclerView.ViewHolder {
         private TextView tvName;
         private TextView tvDescription;
+        private ImageView imageView;
 
         public DeviceViewHolder (View itemView)
         {
             super(itemView);
             tvName = (TextView) itemView.findViewById(R.id.Card1_Text1);
-            tvDescription= (TextView) itemView.findViewById(R.id.Card1_Text2);
+            tvDescription = (TextView) itemView.findViewById(R.id.Card1_Text2);
+            imageView = (ImageView) itemView.findViewById(R.id.Card1_Img1);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

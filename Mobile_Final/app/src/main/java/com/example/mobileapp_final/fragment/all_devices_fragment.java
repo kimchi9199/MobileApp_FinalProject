@@ -1,5 +1,6 @@
 package com.example.mobileapp_final.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -30,6 +31,7 @@ public class all_devices_fragment extends Fragment implements RecyclerViewInterF
 
 
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -38,10 +40,10 @@ public class all_devices_fragment extends Fragment implements RecyclerViewInterF
 
         rcAllDevices = (RecyclerView) view.findViewById(R.id.rv_allDevices);
         mAllDevices = new ArrayList<>();
-        mAllDevices.add(new Devices("C01","Bed Room","Camera01"));
-        mAllDevices.add(new Devices("C02","Living Room","Camera02"));
-        mAllDevices.add(new Devices("C03","Kitchen","Camera03"));
-        mAllDevices.add(new Devices("C04","Garden","Camera04"));
+        mAllDevices.add(new Devices("C01","Bed Room","Camera01", getResources().getDrawable(R.drawable.test_1)));
+        mAllDevices.add(new Devices("C02","Living Room","Camera02", getResources().getDrawable(R.drawable.livingroom)));
+        mAllDevices.add(new Devices("C03","Kitchen","Camera03", getResources().getDrawable(R.drawable.kitchen)));
+        mAllDevices.add(new Devices("C04","Garden","Camera04", getResources().getDrawable(R.drawable.garden)));
 
         mAllDevicesAdapter = new DeviceAdapter(view.getContext(), mAllDevices, all_devices_fragment.this);
         rcAllDevices.setAdapter(mAllDevicesAdapter);

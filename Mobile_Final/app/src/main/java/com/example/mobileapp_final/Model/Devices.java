@@ -1,19 +1,23 @@
 package com.example.mobileapp_final.Model;
 
+import android.graphics.drawable.Drawable;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 public class Devices {
     private String ID;
     private String deviceName;
     private String Description;
+    private Drawable ImageURL;
 
 //    public Devices() {
 //    }
 
-    public Devices(String id, String name, String description ){
+    public Devices(String id, String name, String description, Drawable imageURL ){
         this.ID = id;
         this.deviceName = name;
         this.Description = description;
+        this.ImageURL = imageURL;
 
     }
 
@@ -42,6 +46,12 @@ public class Devices {
         return Description;
     }
 
+    public Drawable getImageURL() {
+        return ImageURL;
+    }
 
+    public void setImageURL(Drawable imageURL) {
+        ImageURL = imageURL;
+    }
 }
 

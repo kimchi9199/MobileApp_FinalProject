@@ -26,11 +26,11 @@ public class Recycler_View extends AppCompatActivity implements RecyclerViewInte
 
         rvDevices = (RecyclerView) findViewById(R.id.Rv_Devices);
 
-        mDevices = new ArrayList<>();
-        mDevices.add(new Devices("C01","Camera01","CamBedRoom"));
-        mDevices.add(new Devices("C02","Camera02","CamLivingRoom"));
-        mDevices.add(new Devices("C03","Camera03","CamKitchenRoom"));
-        mDevices.add(new Devices("C04","Camera04","CamGarden"));
+//        mDevices = new ArrayList<>();
+//        mDevices.add(new Devices("C01","Camera01","CamBedRoom"));
+//        mDevices.add(new Devices("C02","Camera02","CamLivingRoom"));
+//        mDevices.add(new Devices("C03","Camera03","CamKitchenRoom"));
+//        mDevices.add(new Devices("C04","Camera04","CamGarden"));
 
 
         mDeviceAdapter = new DeviceAdapter(this, mDevices, Recycler_View.this);
