@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -36,6 +37,7 @@ import org.opencv.objdetect.CascadeClassifier;
 import org.tensorflow.lite.Interpreter;
 import org.tensorflow.lite.gpu.CompatibilityList;
 import org.tensorflow.lite.gpu.GpuDelegate;
+import org.tensorflow.lite.nnapi.NnApiDelegate;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -103,6 +105,7 @@ public class face_Recognition {
         // Initialize interpreter with GPU delegate
         Interpreter.Options options = new Interpreter.Options();
         CompatibilityList compatList = new CompatibilityList();
+        NnApiDelegate nnApiDelegate = null;
 
         if(compatList.isDelegateSupportedOnThisDevice()){
             // if the device has a supported GPU, add the GPU delegate
@@ -113,6 +116,12 @@ public class face_Recognition {
             // if the GPU is not supported, run on 4 threads
             options.setNumThreads(4);
         }
+        // Initialize interpreter with NNAPI delegate for Android Pie or above
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            nnApiDelegate = new NnApiDelegate();
+            options.addDelegate(nnApiDelegate);
+        }
+
         options.setUseXNNPACK(true);
 
 
