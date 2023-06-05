@@ -97,20 +97,22 @@ public class Stream_Video_Activity extends AppCompatActivity {
                         Mat mat = new Mat(bitmap.getHeight(), bitmap.getWidth(), CvType.CV_8UC4);
                         Utils.bitmapToMat(bitmap, mat);
 
-                        Mat result_mat = faceRecognition.recognizeImage(mat);
-                        Log.d("OK2", "1");
+                        faceRecognition.recognizeImage(mat, mimageView);
 
-                        //show img view -> convert to bitmap
-
-                        // Convert Mat to Bitmap
-                        Bitmap result_bitmap = Bitmap.createBitmap(result_mat.cols(), result_mat.rows(), Bitmap.Config.ARGB_8888);
-                        Utils.matToBitmap(result_mat, result_bitmap);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                mimageView.setImageBitmap(result_bitmap);
-                            }
-                        });
+//                        Mat result_mat = faceRecognition.recognizeImage(mat);
+//                        Log.d("OK2", "1");
+//
+//                        //show img view -> convert to bitmap
+//
+//                        // Convert Mat to Bitmap
+//                        Bitmap result_bitmap = Bitmap.createBitmap(result_mat.cols(), result_mat.rows(), Bitmap.Config.ARGB_8888);
+//                        Utils.matToBitmap(result_mat, result_bitmap);
+//                        runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                mimageView.setImageBitmap(result_bitmap);
+//                            }
+//                        });
                     }
                 } catch (Exception e){
                     e.printStackTrace();
