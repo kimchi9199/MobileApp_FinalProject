@@ -36,7 +36,7 @@ public class Stream_Video_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_stream_video);
         mimageView = findViewById(R.id.Iv_Streamvideo);
 
-        final String SERVER_IP = " 10.68.1.212"; // Server IP address
+        final String SERVER_IP = "192.168.234.2"; // Server IP address
         final int SERVER_PORT = 9999; // Server port number
         final int BUFFER_SIZE = 65536; // Buffer size in bytes
         final int CLIENT_PORT = 9090;
@@ -97,22 +97,22 @@ public class Stream_Video_Activity extends AppCompatActivity {
                         Mat mat = new Mat(bitmap.getHeight(), bitmap.getWidth(), CvType.CV_8UC4);
                         Utils.bitmapToMat(bitmap, mat);
 
-                        faceRecognition.recognizeImage(mat, mimageView);
+//                        faceRecognition.recognizeImage(mat, mimageView);
 
-//                        Mat result_mat = faceRecognition.recognizeImage(mat);
-//                        Log.d("OK2", "1");
-//
-//                        //show img view -> convert to bitmap
-//
-//                        // Convert Mat to Bitmap
-//                        Bitmap result_bitmap = Bitmap.createBitmap(result_mat.cols(), result_mat.rows(), Bitmap.Config.ARGB_8888);
-//                        Utils.matToBitmap(result_mat, result_bitmap);
-//                        runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                mimageView.setImageBitmap(result_bitmap);
-//                            }
-//                        });
+                        Mat result_mat = faceRecognition.recognizeImage(mat);
+                        Log.d("OK2", "1");
+
+                        //show img view -> convert to bitmap
+
+                        // Convert Mat to Bitmap
+                        Bitmap result_bitmap = Bitmap.createBitmap(result_mat.cols(), result_mat.rows(), Bitmap.Config.ARGB_8888);
+                        Utils.matToBitmap(result_mat, result_bitmap);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mimageView.setImageBitmap(result_bitmap);
+                            }
+                        });
                     }
                 } catch (Exception e){
                     e.printStackTrace();

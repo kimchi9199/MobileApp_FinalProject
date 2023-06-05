@@ -90,7 +90,7 @@ public class face_Recognition {
     HashMap<String, ArrayList<float[][]>> StoredFaceVectorHashMap;
     HashMap<String, Float> FaceCosineSimilarityScoreHashMap = new HashMap<>();
     boolean isFaceVectorFileExist;
-    final float THRESHOLD = 0.87f;
+    final float THRESHOLD = 0.85f;
 
     //create
     public face_Recognition(AssetManager assetManager, Context context, String modelFileName, int input_size) throws IOException{
@@ -123,7 +123,6 @@ public class face_Recognition {
             nnApiDelegate = new NnApiDelegate();
             options.addDelegate(nnApiDelegate);
         }
-
         options.setUseXNNPACK(true);
 
 
@@ -214,99 +213,11 @@ public class face_Recognition {
         GetStoredFaceVector.start();
     }
 
-//    //create a new function with input and output Mat
-//    public Mat recognizeImage(Mat mat_image){
-//
-//        MatOfRect faces = new MatOfRect();
-//       // check cascade classifier is loaded or not
-//        if(cascadeClassifier != null)
-//        {
-//            cascadeClassifier.detectMultiScale(mat_image, faces);
-//        }
-//
-//        //now convert faces to array
-//        Rect[] faceArray = faces.toArray();
-//
-//        //loop through each faces
-//        for (Rect rect : faceArray) {
-//            //draw rectangle faces
-//            Imgproc.rectangle(mat_image, rect.tl(), rect.br(), new Scalar(0, 255, 0, 255),
-//                    2);
-//
-//            // region of interest
-//            Rect roi = new Rect((int) rect.tl().x, (int) rect.tl().y,
-//                    ((int) rect.br().x) - ((int) rect.tl().x),
-//                    ((int) rect.br().y) - ((int) rect.tl().y));
-//
-//            //roi is used to crop faces from image
-//            Mat cropped_rgb = new Mat(mat_image, roi);
-//
-//            //now convert cropped_rgb to bitmap
-//            Bitmap bitmap = null;
-//            bitmap = Bitmap.createBitmap(cropped_rgb.cols(), cropped_rgb.rows(), Bitmap.Config.ARGB_8888);
-//            Utils.matToBitmap(cropped_rgb, bitmap);
-//
-//            //Scale bitmap to model input size 96
-//            Bitmap scaleBitmap = Bitmap.createScaledBitmap(bitmap, INPUT_SIZE, INPUT_SIZE, false);
-//
-//            //convert scaleBitmap to byteBuffer
-//            //create convertBitmapToByteBuffer function
-//            ByteBuffer byteBuffer = convertBitmapToByteBuffer(scaleBitmap);
-//
-//            //create output
-//            float[][] face_value = new float[1][128];
-//            if (isFaceVectorFileExist) {
-//                interpreter.run(byteBuffer, face_value);
-//                for (Map.Entry<String, ArrayList<float[][]>> entry : StoredFaceVectorHashMap.entrySet()) {
-//                    String key = entry.getKey();
-//                    ArrayList<float[][]> FaceVectorsOfAPerson = entry.getValue();
-//                    int NumberOfStoredVector = 0;
-//                    float SumOfCosineSimilarity = 0;
-//                    float CosineSimilarity = 0;
-//                    // Iterate over the face vector array list of a person
-//                    for (float[][] vector : FaceVectorsOfAPerson) {
-//                        // Calculate Cosine Similarity between two face vectors
-//                        CosineSimilarity = CalculateCosineSimilarity(vector, face_value);
-//                        SumOfCosineSimilarity += CosineSimilarity;
-//                        NumberOfStoredVector += 1;
-//                    }
-//
-//                    // Calculate Average Cosine Similarity
-//                    float AverageCosineSimilarity = SumOfCosineSimilarity / NumberOfStoredVector;
-//                    FaceCosineSimilarityScoreHashMap.put(key, AverageCosineSimilarity);
-//                }
-//                float max = Objects.requireNonNull(FaceCosineSimilarityScoreHashMap
-//                        .entrySet()
-//                        .stream()
-//                        .max(Map.Entry.comparingByValue())
-//                        .orElse(null)).getValue();
-//                if (max >= THRESHOLD) {
-//                    // Get identity of the person by choosing the key that has the highest average Cosine Similarity score
-//                    identity = FaceCosineSimilarityScoreHashMap
-//                            .entrySet()
-//                            .stream()
-//                            .max(Map.Entry.comparingByValue())
-//                            .map(Map.Entry::getKey)
-//                            .orElse(null);
-//                } else {
-//                    identity = "unknown";
-//                }
-//            }
-//
-//            //put text on frame
-//            Imgproc.putText(mat_image, " " + identity,
-//                    new Point((int) rect.tl().x + 10, (int) rect.tl().y + 20),
-//                    1, 1.5, new Scalar(255, 255, 255, 150), 2);
-//        }
-//        return mat_image;
-//    }
-
     //create a new function with input and output Mat
-    public void recognizeImage(Mat mat_image, ImageView imageView){
+    public Mat recognizeImage(Mat mat_image){
 
-        ImageView mImageView = imageView;
         MatOfRect faces = new MatOfRect();
-        // check cascade classifier is loaded or not
+       // check cascade classifier is loaded or not
         if(cascadeClassifier != null)
         {
             cascadeClassifier.detectMultiScale(mat_image, faces);
@@ -386,16 +297,104 @@ public class face_Recognition {
                     new Point((int) rect.tl().x + 10, (int) rect.tl().y + 20),
                     1, 1.5, new Scalar(255, 255, 255, 150), 2);
         }
-        // Convert Mat to Bitmap
-        Bitmap result_bitmap = Bitmap.createBitmap(mat_image.cols(), mat_image.rows(), Bitmap.Config.ARGB_8888);
-        Utils.matToBitmap(mat_image, result_bitmap);
-        ((Activity) context).runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mImageView.setImageBitmap(result_bitmap);
-            }
-        });
+        return mat_image;
     }
+
+//    //create a new function with input and output Mat
+//    public void recognizeImage(Mat mat_image, ImageView imageView){
+//
+//        ImageView mImageView = imageView;
+//        MatOfRect faces = new MatOfRect();
+//        // check cascade classifier is loaded or not
+//        if(cascadeClassifier != null)
+//        {
+//            cascadeClassifier.detectMultiScale(mat_image, faces);
+//        }
+//
+//        //now convert faces to array
+//        Rect[] faceArray = faces.toArray();
+//
+//        //loop through each faces
+//        for (Rect rect : faceArray) {
+//            //draw rectangle faces
+//            Imgproc.rectangle(mat_image, rect.tl(), rect.br(), new Scalar(0, 255, 0, 255),
+//                    2);
+//
+//            // region of interest
+//            Rect roi = new Rect((int) rect.tl().x, (int) rect.tl().y,
+//                    ((int) rect.br().x) - ((int) rect.tl().x),
+//                    ((int) rect.br().y) - ((int) rect.tl().y));
+//
+//            //roi is used to crop faces from image
+//            Mat cropped_rgb = new Mat(mat_image, roi);
+//
+//            //now convert cropped_rgb to bitmap
+//            Bitmap bitmap = null;
+//            bitmap = Bitmap.createBitmap(cropped_rgb.cols(), cropped_rgb.rows(), Bitmap.Config.ARGB_8888);
+//            Utils.matToBitmap(cropped_rgb, bitmap);
+//
+//            //Scale bitmap to model input size 96
+//            Bitmap scaleBitmap = Bitmap.createScaledBitmap(bitmap, INPUT_SIZE, INPUT_SIZE, false);
+//
+//            //convert scaleBitmap to byteBuffer
+//            //create convertBitmapToByteBuffer function
+//            ByteBuffer byteBuffer = convertBitmapToByteBuffer(scaleBitmap);
+//
+//            //create output
+//            float[][] face_value = new float[1][128];
+//            if (isFaceVectorFileExist) {
+//                interpreter.run(byteBuffer, face_value);
+//                for (Map.Entry<String, ArrayList<float[][]>> entry : StoredFaceVectorHashMap.entrySet()) {
+//                    String key = entry.getKey();
+//                    ArrayList<float[][]> FaceVectorsOfAPerson = entry.getValue();
+//                    int NumberOfStoredVector = 0;
+//                    float SumOfCosineSimilarity = 0;
+//                    float CosineSimilarity = 0;
+//                    // Iterate over the face vector array list of a person
+//                    for (float[][] vector : FaceVectorsOfAPerson) {
+//                        // Calculate Cosine Similarity between two face vectors
+//                        CosineSimilarity = CalculateCosineSimilarity(vector, face_value);
+//                        SumOfCosineSimilarity += CosineSimilarity;
+//                        NumberOfStoredVector += 1;
+//                    }
+//
+//                    // Calculate Average Cosine Similarity
+//                    float AverageCosineSimilarity = SumOfCosineSimilarity / NumberOfStoredVector;
+//                    FaceCosineSimilarityScoreHashMap.put(key, AverageCosineSimilarity);
+//                }
+//                float max = Objects.requireNonNull(FaceCosineSimilarityScoreHashMap
+//                        .entrySet()
+//                        .stream()
+//                        .max(Map.Entry.comparingByValue())
+//                        .orElse(null)).getValue();
+//                if (max >= THRESHOLD) {
+//                    // Get identity of the person by choosing the key that has the highest average Cosine Similarity score
+//                    identity = FaceCosineSimilarityScoreHashMap
+//                            .entrySet()
+//                            .stream()
+//                            .max(Map.Entry.comparingByValue())
+//                            .map(Map.Entry::getKey)
+//                            .orElse(null);
+//                } else {
+//                    identity = "unknown";
+//                }
+//            }
+//
+//            //put text on frame
+//            Imgproc.putText(mat_image, " " + identity,
+//                    new Point((int) rect.tl().x + 10, (int) rect.tl().y + 20),
+//                    1, 1.5, new Scalar(255, 255, 255, 150), 2);
+//        }
+//        // Convert Mat to Bitmap
+//        Bitmap result_bitmap = Bitmap.createBitmap(mat_image.cols(), mat_image.rows(), Bitmap.Config.ARGB_8888);
+//        Utils.matToBitmap(mat_image, result_bitmap);
+//        ((Activity) context).runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                mImageView.setImageBitmap(result_bitmap);
+//            }
+//        });
+//    }
 
     private ByteBuffer convertBitmapToByteBuffer(Bitmap scaleBitmap) {
 
