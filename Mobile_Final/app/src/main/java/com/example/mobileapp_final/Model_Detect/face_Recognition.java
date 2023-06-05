@@ -96,7 +96,7 @@ public class face_Recognition {
         this.modelFileName = modelFileName;
         this.input_size = input_size;
 
-        //get inputsize
+        //get input-size
         INPUT_SIZE = input_size;
 
 
@@ -123,7 +123,7 @@ public class face_Recognition {
             //when model is successfully load
             Log.d("MODEL", "face_Recognition: Model is loaded");
 
-//            // Read model input shape from model file
+            // Read model input shape from model file
             int[] inputShape = interpreter.getInputTensor(0).shape();
             inputImageWidth = inputShape[1];
             inputImageHeight = inputShape[2];
@@ -206,19 +206,16 @@ public class face_Recognition {
     //create a new function with input and output Mat
     public Mat recognizeImage(Mat mat_image){
 
-        MatOfRect faces=new MatOfRect();
+        MatOfRect faces = new MatOfRect();
        // check cascade classifier is loaded or not
         if(cascadeClassifier != null)
         {
-            try {
-                cascadeClassifier.detectMultiScale(mat_image, faces);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            cascadeClassifier.detectMultiScale(mat_image, faces);
         }
+
         //now convert faces to array
-        Rect[] faceArray=faces.toArray();
+        Rect[] faceArray = faces.toArray();
+        
         //loop through each faces
         for (Rect rect : faceArray) {
             //draw rectangle faces
@@ -440,7 +437,7 @@ public class face_Recognition {
             Bitmap coppedBitmap = null;
             coppedBitmap = Bitmap.createBitmap(cropped_rgb.cols(), cropped_rgb.rows(), Bitmap.Config.ARGB_8888);
             Utils.matToBitmap(cropped_rgb, coppedBitmap);
-            //Scale bitmap to model input size 96
+            //Scale bitmap to model input size 160
             Bitmap scaleBitmap = Bitmap.createScaledBitmap(coppedBitmap, INPUT_SIZE, INPUT_SIZE, false);
 
             //convert scaleBitmap to byteBuffer
