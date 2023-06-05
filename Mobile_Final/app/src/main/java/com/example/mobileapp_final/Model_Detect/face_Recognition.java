@@ -34,6 +34,7 @@ import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 import org.tensorflow.lite.Interpreter;
+import org.tensorflow.lite.gpu.CompatibilityList;
 import org.tensorflow.lite.gpu.GpuDelegate;
 
 import java.io.File;
@@ -97,15 +98,23 @@ public class face_Recognition {
 
         //get inputsize
         INPUT_SIZE = input_size;
-        //set GPU for the interpreter
+
+
+        // Initialize interpreter with GPU delegate
         Interpreter.Options options = new Interpreter.Options();
-        gpuDelegate = new GpuDelegate();
-//        options.addDelegate(gpuDelegate);
+        CompatibilityList compatList = new CompatibilityList();
 
+        if(compatList.isDelegateSupportedOnThisDevice()){
+            // if the device has a supported GPU, add the GPU delegate
+            GpuDelegate.Options delegateOptions = compatList.getBestOptionsForThisDevice();
+            GpuDelegate gpuDelegate = new GpuDelegate(delegateOptions);
+            options.addDelegate(gpuDelegate);
+        } else {
+            // if the GPU is not supported, run on 4 threads
+            options.setNumThreads(4);
+        }
+        options.setUseXNNPACK(true);
 
-
-        //before load add number of threads
-        options.setNumThreads(4);
 
         try {
             //load model
@@ -211,103 +220,75 @@ public class face_Recognition {
         //now convert faces to array
         Rect[] faceArray=faces.toArray();
         //loop through each faces
-        for(int i=0;i<faceArray.length;i++)
-        {
+        for (Rect rect : faceArray) {
             //draw rectangle faces
-            //                in/output starting point     end point         Color     R  G  B  alpha
-            Imgproc.rectangle(mat_image,faceArray[i].tl(),faceArray[i].br(),new Scalar(0,255,0,255),
-                            2);
+            Imgproc.rectangle(mat_image, rect.tl(), rect.br(), new Scalar(0, 255, 0, 255),
+                    2);
 
             // region of interest
-            Rect roi=new Rect((int)faceArray[i].tl().x,(int)faceArray[i].tl().y,
-                    ((int)faceArray[i].br().x)-((int)faceArray[i].tl().x),
-                    ((int)faceArray[i].br().y)-((int)faceArray[i].tl().y));
+            Rect roi = new Rect((int) rect.tl().x, (int) rect.tl().y,
+                    ((int) rect.br().x) - ((int) rect.tl().x),
+                    ((int) rect.br().y) - ((int) rect.tl().y));
             //roi is used to crop faces from image
-            Mat cropped_rgb=new Mat(mat_image,roi);
+            Mat cropped_rgb = new Mat(mat_image, roi);
             //now convert cropped_rgb to bitmap
             Bitmap bitmap = null;
-            bitmap = Bitmap.createBitmap(cropped_rgb.cols(),cropped_rgb.rows(),Bitmap.Config.ARGB_8888);
-            Utils.matToBitmap(cropped_rgb,bitmap);
+            bitmap = Bitmap.createBitmap(cropped_rgb.cols(), cropped_rgb.rows(), Bitmap.Config.ARGB_8888);
+            Utils.matToBitmap(cropped_rgb, bitmap);
             //Scale bitmap to model input size 96
-            Bitmap scaleBitmap = Bitmap.createScaledBitmap(bitmap,INPUT_SIZE,INPUT_SIZE,false);
+            Bitmap scaleBitmap = Bitmap.createScaledBitmap(bitmap, INPUT_SIZE, INPUT_SIZE, false);
             //convert scaleBitmap to byteBuffer
 
 
             //create convertBitmapToByteBuffer function
-            ByteBuffer byteBuffer=convertBitmapToByteBuffer(scaleBitmap);
+            ByteBuffer byteBuffer = convertBitmapToByteBuffer(scaleBitmap);
 
             //create output
             float[][] face_value = new float[1][128];
             if (isFaceVectorFileExist) {
-                Thread RecognizeFace = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            interpreter.run(byteBuffer,face_value);
-                            try {
-                                Thread CompareFace = new Thread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        for (Map.Entry<String, ArrayList<float[][]>> entry : StoredFaceVectorHashMap.entrySet()) {
-                                            String key = entry.getKey();
-                                            ArrayList<float[][]> FaceVectorsOfAPerson = entry.getValue();
-                                            int NumberOfStoredVector = 0;
-                                            float SumOfCosineSimilarity = 0;
-                                            float CosineSimilarity = 0;
-                                            // Iterate over the face vector array list of a person
-                                            for (float[][] vector : FaceVectorsOfAPerson) {
-                                                // Calculate Cosine Similarity between two face vectors
-                                                CosineSimilarity = CalculateCosineSimilarity(vector, face_value);
-                                                SumOfCosineSimilarity += CosineSimilarity;
-                                                NumberOfStoredVector += 1;
-                                            }
-
-                                            // Calculate Average Cosine Similarity
-                                            float AverageCosineSimilarity = SumOfCosineSimilarity / NumberOfStoredVector;
-                                            FaceCosineSimilarityScoreHashMap.put(key, AverageCosineSimilarity);
-                                            Log.d("OK", "COSINE ");
-                                        }
-                                        try {
-                                            float max = Objects.requireNonNull(FaceCosineSimilarityScoreHashMap
-                                                    .entrySet()
-                                                    .stream()
-                                                    .max(Map.Entry.comparingByValue())
-                                                    .orElse(null)).getValue();
-                                            if (max >= THRESHOLD) {
-                                                // Get identity of the person by choosing the key that has the highest average Cosine Similarity score
-                                                identity = FaceCosineSimilarityScoreHashMap
-                                                        .entrySet()
-                                                        .stream()
-                                                        .max(Map.Entry.comparingByValue())
-                                                        .map(Map.Entry::getKey)
-                                                        .orElse(null);
-                                            } else {
-                                                identity = "unknown";
-                                            }
-                                            Log.d("OK", "COSINE ");
-                                        } catch (Exception e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                });
-                                CompareFace.start();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        } catch (Exception e){
-                            e.printStackTrace();
-                        }
+                interpreter.run(byteBuffer, face_value);
+                for (Map.Entry<String, ArrayList<float[][]>> entry : StoredFaceVectorHashMap.entrySet()) {
+                    String key = entry.getKey();
+                    ArrayList<float[][]> FaceVectorsOfAPerson = entry.getValue();
+                    int NumberOfStoredVector = 0;
+                    float SumOfCosineSimilarity = 0;
+                    float CosineSimilarity = 0;
+                    // Iterate over the face vector array list of a person
+                    for (float[][] vector : FaceVectorsOfAPerson) {
+                        // Calculate Cosine Similarity between two face vectors
+                        CosineSimilarity = CalculateCosineSimilarity(vector, face_value);
+                        SumOfCosineSimilarity += CosineSimilarity;
+                        NumberOfStoredVector += 1;
                     }
-                });
-                RecognizeFace.start();
+
+                    // Calculate Average Cosine Similarity
+                    float AverageCosineSimilarity = SumOfCosineSimilarity / NumberOfStoredVector;
+                    FaceCosineSimilarityScoreHashMap.put(key, AverageCosineSimilarity);
+                    Log.d("OK", "COSINE ");
+                }
+                float max = Objects.requireNonNull(FaceCosineSimilarityScoreHashMap
+                        .entrySet()
+                        .stream()
+                        .max(Map.Entry.comparingByValue())
+                        .orElse(null)).getValue();
+                if (max >= THRESHOLD) {
+                    // Get identity of the person by choosing the key that has the highest average Cosine Similarity score
+                    identity = FaceCosineSimilarityScoreHashMap
+                            .entrySet()
+                            .stream()
+                            .max(Map.Entry.comparingByValue())
+                            .map(Map.Entry::getKey)
+                            .orElse(null);
+                } else {
+                    identity = "unknown";
+                }
+                Log.d("OK", "COSINE ");
             }
 
             //put text on frame
-            //              in/output       text
-            Imgproc.putText(mat_image," " + identity,
-                    new Point((int)faceArray[i].tl().x+10,(int)faceArray[i].tl().y+20),
-                            1,1.5,new Scalar(255,255,255,150),2);
-            //                  size                    color   R   G   B   alpha   thickness
+            Imgproc.putText(mat_image, " " + identity,
+                    new Point((int) rect.tl().x + 10, (int) rect.tl().y + 20),
+                    1, 1.5, new Scalar(255, 255, 255, 150), 2);
         }
         return mat_image;
     }
