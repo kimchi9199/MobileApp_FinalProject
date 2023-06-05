@@ -2,7 +2,7 @@
   {
     "level_": 0,
     "message_": "Start JSON generation. Platform version: 24 min SDK version: x86",
-    "file_": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "file_": "/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
     "tag_": "debug|x86",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,
@@ -12,11 +12,12 @@
     },
     "memoizedSize": -1,
     "memoizedHashCode": -850391638
+
   },
   {
     "level_": 0,
-    "message_": "JSON \u0027D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\.cxx\\Debug\\5s52af3c\\x86\\android_gradle_build.json\u0027 was up-to-date",
-    "file_": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "message_": "JSON \u0027/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/.cxx/Debug/5s52af3c/x86/android_gradle_build.json\u0027 was up-to-date",
+    "file_": "/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
     "tag_": "debug|x86",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,
@@ -26,11 +27,12 @@
     },
     "memoizedSize": -1,
     "memoizedHashCode": -1781393602
+
   },
   {
     "level_": 0,
     "message_": "JSON generation completed without problems",
-    "file_": "D:\\Study\\Cirriculums\\Mobile-Developement\\KC\\FinalProject\\MobileApp_FinalProject\\Mobile_Final\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "file_": "/Users/sarah/MobileApp_FinalProject/Mobile_Final/OpenCV/libcxx_helper/CMakeLists.txt",
     "tag_": "debug|x86",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,

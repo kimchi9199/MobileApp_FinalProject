@@ -25,8 +25,17 @@ import android.widget.Toast;
 import com.example.mobileapp_final.Model.FaceVector;
 import com.example.mobileapp_final.Model_Detect.face_Recognition;
 import com.example.mobileapp_final.fragment.all_devices_fragment;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
 import org.opencv.android.OpenCVLoader;
@@ -47,6 +56,10 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
     CardView cardView;
     BottomNavigationView bottomNavigationView;
+    MaterialButton btnmenu;
+    DatabaseReference databaseReference;
+    GoogleSignInClient gClient;
+    GoogleSignInOptions gOptions;
     private static final int REQUEST_CODE_OPEN_DOCUMENT_TREE = 1;
     private HashMap<String, ArrayList<float[][]>> FaceVectorHashMap = new HashMap<>();
     Gson gson;
@@ -62,6 +75,44 @@ public class MainActivity extends AppCompatActivity {
         gson = new Gson();
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bt_navigation_menu);
+        btnmenu = findViewById(R.id.Btn_Profile);
+
+
+        // Initialize the Firebase Realtime Database reference
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gClient = GoogleSignIn.getClient(this, gOptions);
+
+        // Retrieve the data from the Firebase Realtime Database
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+
+                if (id == R.id.page_2) {
+
+                    gClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            finish();
+                            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                        }
+                    });
+
+                }
+                return false;
+            }
+        });
+        btnmenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ListShowActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
