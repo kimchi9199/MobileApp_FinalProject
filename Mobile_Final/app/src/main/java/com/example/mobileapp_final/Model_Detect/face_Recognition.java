@@ -1,7 +1,12 @@
 package com.example.mobileapp_final.Model_Detect;
 
+import android.Manifest;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -14,6 +19,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.example.mobileapp_final.MainActivity;
 import com.example.mobileapp_final.R;
@@ -74,11 +82,11 @@ public class face_Recognition {
     private int inputImageHeight = 0;
     private int inputImageWidth = 0;
     //now define Gpudelegate
-    private GpuDelegate gpuDelegate=null;// run model using GPU
+    private GpuDelegate gpuDelegate = null;// run model using GPU
     private CascadeClassifier cascadeClassifier;
 
-    private  int FLOAT_TYPE_SIZE = 4;
-    private int  PIXEL_SIZE = 3;
+    private int FLOAT_TYPE_SIZE = 4;
+    private int PIXEL_SIZE = 3;
 
     private AssetManager assetManager;
     private Context context;
@@ -93,7 +101,7 @@ public class face_Recognition {
     final float THRESHOLD = 0.85f;
 
     //create
-    public face_Recognition(AssetManager assetManager, Context context, String modelFileName, int input_size) throws IOException{
+    public face_Recognition(AssetManager assetManager, Context context, String modelFileName, int input_size) throws IOException {
 
         this.assetManager = assetManager;
         this.context = context;
@@ -109,7 +117,7 @@ public class face_Recognition {
         CompatibilityList compatList = new CompatibilityList();
         NnApiDelegate nnApiDelegate = null;
 
-        if(compatList.isDelegateSupportedOnThisDevice()){
+        if (compatList.isDelegateSupportedOnThisDevice()) {
             // if the device has a supported GPU, add the GPU delegate
             GpuDelegate.Options delegateOptions = compatList.getBestOptionsForThisDevice();
             GpuDelegate gpuDelegate = new GpuDelegate(delegateOptions);
@@ -119,7 +127,7 @@ public class face_Recognition {
             options.setNumThreads(4);
         }
         // Initialize interpreter with NNAPI delegate for Android Pie or above
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             nnApiDelegate = new NnApiDelegate();
             options.addDelegate(nnApiDelegate);
         }
@@ -146,32 +154,30 @@ public class face_Recognition {
         //load haar cascade file
         try {
             //define input stream to read haar cascade file
-            InputStream inputStream=context.getResources().openRawResource(R.raw.haarcascade_frontalface_alt2);
+            InputStream inputStream = context.getResources().openRawResource(R.raw.haarcascade_frontalface_alt2);
 
             //create a new folder to save classifier
-            File cascadeDir=context.getDir("cascade",Context.MODE_PRIVATE);
+            File cascadeDir = context.getDir("cascade", Context.MODE_PRIVATE);
             //create a new cascade file in that folder
             File mCascadeFile = new File(cascadeDir, "haarcascade_frontalface_alt");
             //Define output stream to save haarcascade_frontalface_alt in mCascadefile
-            FileOutputStream outputStream=new FileOutputStream(mCascadeFile);
+            FileOutputStream outputStream = new FileOutputStream(mCascadeFile);
             //create a empty file buffer to store byte
-            byte[] buffer=new byte[4096];
+            byte[] buffer = new byte[4096];
             int byteRead;
             //Read byte in loop, when it read -1 that means no data to read
-            while ((byteRead=inputStream.read(buffer)) != -1)
-            {
-                outputStream.write(buffer,0,byteRead);
+            while ((byteRead = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, byteRead);
             }
             //when reading file was completed
             inputStream.close();
             outputStream.close();
 
             //load cascade classifier
-            cascadeClassifier=new CascadeClassifier(mCascadeFile.getAbsolutePath());
-            Log.d("face_recognition","Classifier is loaded");
+            cascadeClassifier = new CascadeClassifier(mCascadeFile.getAbsolutePath());
+            Log.d("face_recognition", "Classifier is loaded");
 
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         Thread GetStoredFaceVector = new Thread(new Runnable() {
@@ -214,12 +220,11 @@ public class face_Recognition {
     }
 
     //create a new function with input and output Mat
-    public Mat recognizeImage(Mat mat_image){
+    public Mat recognizeImage(Mat mat_image) {
 
         MatOfRect faces = new MatOfRect();
-       // check cascade classifier is loaded or not
-        if(cascadeClassifier != null)
-        {
+        // check cascade classifier is loaded or not
+        if (cascadeClassifier != null) {
             cascadeClassifier.detectMultiScale(mat_image, faces);
         }
 
@@ -289,6 +294,29 @@ public class face_Recognition {
                             .orElse(null);
                 } else {
                     identity = "unknown";
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        NotificationChannel channel = new NotificationChannel("stranger detected", "stranger detected", NotificationManager.IMPORTANCE_DEFAULT);
+                        NotificationManager manager = ((Activity) context).getSystemService(NotificationManager.class);
+                        manager.createNotificationChannel(channel);
+                    }
+                    NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "stranger detected");
+                    builder.setContentTitle("Stranger Detected");
+                    builder.setContentText("We detected stranger(s)");
+                    builder.setSmallIcon(R.drawable.face);
+                    builder.setAutoCancel(false);
+
+                    NotificationManagerCompat managerCompat = NotificationManagerCompat.from(context);
+                    if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                        ((Activity) context).runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(context, "Please allow notification of this application", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                    managerCompat.notify(1, builder.build());
+
                 }
             }
 
