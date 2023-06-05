@@ -215,7 +215,7 @@ public class face_Recognition {
 
         //now convert faces to array
         Rect[] faceArray = faces.toArray();
-        
+
         //loop through each faces
         for (Rect rect : faceArray) {
             //draw rectangle faces
@@ -226,17 +226,19 @@ public class face_Recognition {
             Rect roi = new Rect((int) rect.tl().x, (int) rect.tl().y,
                     ((int) rect.br().x) - ((int) rect.tl().x),
                     ((int) rect.br().y) - ((int) rect.tl().y));
+
             //roi is used to crop faces from image
             Mat cropped_rgb = new Mat(mat_image, roi);
+
             //now convert cropped_rgb to bitmap
             Bitmap bitmap = null;
             bitmap = Bitmap.createBitmap(cropped_rgb.cols(), cropped_rgb.rows(), Bitmap.Config.ARGB_8888);
             Utils.matToBitmap(cropped_rgb, bitmap);
+
             //Scale bitmap to model input size 96
             Bitmap scaleBitmap = Bitmap.createScaledBitmap(bitmap, INPUT_SIZE, INPUT_SIZE, false);
+
             //convert scaleBitmap to byteBuffer
-
-
             //create convertBitmapToByteBuffer function
             ByteBuffer byteBuffer = convertBitmapToByteBuffer(scaleBitmap);
 
@@ -261,7 +263,6 @@ public class face_Recognition {
                     // Calculate Average Cosine Similarity
                     float AverageCosineSimilarity = SumOfCosineSimilarity / NumberOfStoredVector;
                     FaceCosineSimilarityScoreHashMap.put(key, AverageCosineSimilarity);
-                    Log.d("OK", "COSINE ");
                 }
                 float max = Objects.requireNonNull(FaceCosineSimilarityScoreHashMap
                         .entrySet()
@@ -279,7 +280,6 @@ public class face_Recognition {
                 } else {
                     identity = "unknown";
                 }
-                Log.d("OK", "COSINE ");
             }
 
             //put text on frame
