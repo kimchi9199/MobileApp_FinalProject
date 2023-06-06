@@ -135,7 +135,8 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.page_2:
-                        // haven't implemented yet
+                        Intent LogoutIntent = new Intent(MainActivity.this, LoginActivity.class);
+                        startActivity(LogoutIntent);
                         return true;
 
                     case R.id.page_3:
