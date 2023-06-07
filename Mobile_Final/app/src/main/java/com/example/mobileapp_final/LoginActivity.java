@@ -136,6 +136,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -203,5 +205,13 @@ public class LoginActivity extends AppCompatActivity {
                 activityResultLauncher.launch(signInIntent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
+        startActivity(intent);
     }
 }
